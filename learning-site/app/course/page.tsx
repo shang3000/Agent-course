@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { courseLessons, units } from './course-data';
 
 const existingLessons = [
-  { id: 'lesson-1', number: '01', title: '什么是智能体？', href: '/', storage: 'agent-unit1-lesson1' },
+  { id: 'lesson-1', number: '01', title: '什么是智能体？', href: '/unit1/agent', storage: 'agent-unit1-lesson1' },
   { id: 'lesson-2', number: '02', title: 'LLM、Token 与消息', href: '/unit1/llm', storage: 'agent-unit1-lesson2' },
 ];
 
@@ -50,7 +50,8 @@ export default function CourseHub() {
     }
     setActiveId(id);
     setQuizChoice(null);
-    window.history.pushState(null, '', `/course#${id}`);
+    const hubPath = window.location.pathname === '/' ? '/' : '/course';
+    window.history.pushState(null, '', `${hubPath}#${id}`);
     window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
@@ -72,7 +73,7 @@ export default function CourseHub() {
         <Link className="brand" href="/"><span className="brand-mark">A</span><div><strong>Agent 伴读</strong><small>完整课程中心</small></div></Link>
         <select className="mobile-course-select" value={activeId} aria-label="选择课程主题" onChange={(event) => {
           const id = event.target.value;
-          if (id === 'lesson-1') window.location.href = '/';
+          if (id === 'lesson-1') window.location.href = '/unit1/agent';
           else if (id === 'lesson-2') window.location.href = '/unit1/llm';
           else selectLesson(id);
         }}>
@@ -101,7 +102,7 @@ export default function CourseHub() {
       <section className="course-reader">
         <header className="course-topbar">
           <div><span className="live-dot" />官方中文课程伴读 · 完整版</div>
-          <div className="course-toplinks"><Link href="/">第一课</Link><Link href="/unit1/llm">第二课</Link><a href="https://huggingface.co/learn/agents-course/zh-CN" target="_blank" rel="noreferrer">官方课程 ↗</a></div>
+          <div className="course-toplinks"><Link href="/unit1/agent">第一课</Link><Link href="/unit1/llm">第二课</Link><a href="https://huggingface.co/learn/agents-course/zh-CN" target="_blank" rel="noreferrer">官方课程 ↗</a></div>
         </header>
 
         <article className={`course-article accent-${lesson.accent}`} aria-live="polite">

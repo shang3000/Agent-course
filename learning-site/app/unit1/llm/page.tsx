@@ -43,17 +43,17 @@ export default function LLMLesson() {
         </div>
         <nav aria-label="课程章节">
           <p className="nav-heading">第 1 单元 · 智能体基础</p>
-          <Link className="nav-item" href="/"><span>01</span>什么是智能体？</Link>
+          <Link className="nav-item" href="/unit1/agent"><span>01</span>什么是智能体？</Link>
           <Link className="nav-item active" href="/unit1/llm"><span>02</span>LLM、Token 与消息</Link>
-          <Link className="nav-item" href="/course#unit1-tools"><span>03</span>工具与行动</Link>
-          <Link className="nav-item" href="/#loop"><span>04</span>Agent 工作循环</Link>
-          <Link className="nav-item" href="/course#unit1-first-agent"><span>05</span>第一个智能体</Link>
+          <Link className="nav-item" href="/#unit1-tools"><span>03</span>工具与行动</Link>
+          <Link className="nav-item" href="/unit1/agent#loop"><span>04</span>Agent 工作循环</Link>
+          <Link className="nav-item" href="/#unit1-first-agent"><span>05</span>第一个智能体</Link>
         </nav>
         <div className="sidebar-note blue-note"><span>本节目标</span><p>能解释 Token、下一个 Token 预测、消息角色和聊天模板。</p></div>
       </aside>
 
       <section className="content">
-        <header className="topbar"><span className="eyebrow">UNIT 1 · LLM、TOKEN 与消息</span><div className="top-actions"><Link className="back-link" href="/">← 第一课</Link><Link className="back-link" href="/course">完整课程中心 →</Link></div></header>
+        <header className="topbar"><span className="eyebrow">UNIT 1 · LLM、TOKEN 与消息</span><div className="top-actions"><Link className="back-link" href="/unit1/agent">← 第一课</Link><Link className="back-link" href="/">完整课程中心 →</Link></div></header>
         <article>
           <section className="llm-hero">
             <div className="llm-title"><span className="chapter-pill">UNIT 1 · 第二课</span><h1>LLM 看见的世界，<br />其实是一串 Token</h1><p>你看到的是一句完整的话；模型看到的是编号序列。它每次只做一件看似简单、实际很强大的事：<strong>猜下一个 Token。</strong></p></div>
@@ -105,7 +105,7 @@ export default function LLMLesson() {
           </section>
 
           <section className="lesson-end llm-end"><div><span>本节通关句</span><h2>“LLM 连续预测 Token；聊天模板把角色消息翻译成模型认识的提示序列。”</h2><p>能解释这句话，就已经抓住了 Agent“大脑”的输入输出机制。</p></div><button onClick={finishLesson} className={completed ? 'completed' : ''}>{completed ? '已完成 · 进度已保存' : '我已看懂，完成本节'}</button></section>
-          <div className="lesson-pager"><Link href="/">← 第一课：什么是智能体</Link><Link href="/course#unit1-tools">第三课：工具与行动 →</Link></div>
+          <div className="lesson-pager"><Link href="/unit1/agent">← 第一课：什么是智能体</Link><Link href="/#unit1-tools">第三课：工具与行动 →</Link></div>
         </article>
       </section>
     </main>
