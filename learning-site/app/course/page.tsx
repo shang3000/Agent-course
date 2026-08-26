@@ -70,7 +70,7 @@ export default function CourseHub() {
   return (
     <main className="course-hub">
       <aside className="course-nav">
-        <Link className="brand" href="/"><span className="brand-mark">A</span><div><strong>Agent 伴读</strong><small>完整课程中心</small></div></Link>
+        <Link className="brand" href="/"><span className="brand-mark">A</span><div><strong>Agent 伴读</strong><small>14 主题速览模式</small></div></Link>
         <select className="mobile-course-select" value={activeId} aria-label="选择课程主题" onChange={(event) => {
           const id = event.target.value;
           if (id === 'lesson-1') window.location.href = '/unit1/agent';
@@ -101,9 +101,11 @@ export default function CourseHub() {
 
       <section className="course-reader">
         <header className="course-topbar">
-          <div><span className="live-dot" />官方中文课程伴读 · 完整版</div>
-          <div className="course-toplinks"><Link href="/unit1/agent">第一课</Link><Link href="/unit1/llm">第二课</Link><a href="https://huggingface.co/learn/agents-course/zh-CN" target="_blank" rel="noreferrer">官方课程 ↗</a></div>
+          <div><span className="live-dot" />Hinata 批注 · 摘要速览</div>
+          <div className="course-toplinks"><Link href="/">75 页官方完整课程</Link><Link href="/unit1/agent">第一课精讲</Link><a href="https://huggingface.co/learn/agents-course/zh-CN" target="_blank" rel="noreferrer">官方网站 ↗</a></div>
         </header>
+
+        <div className="summary-notice"><strong>这里是速览，不是官方全文。</strong><span>14 个主题用于快速复习；完整的 75 页官方正文、代码和测验请进入完整模式。</span><Link href="/">进入官方完整课程 →</Link></div>
 
         <article className={`course-article accent-${lesson.accent}`} aria-live="polite">
           <section className="course-hero">

@@ -1,1 +1,1 @@
-export { default } from './course/page';
+export { default } from './official/page';

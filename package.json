@@ -6,6 +6,8 @@
     "dev": "npm --prefix learning-site run dev",
     "build": "npm --prefix learning-site run build",
     "lint": "npm --prefix learning-site run lint",
-    "start": "npm --prefix learning-site run start"
+    "start": "npm --prefix learning-site run start",
+    "sync:official": "node scripts/sync_official_course.mjs",
+    "verify:official": "node scripts/verify_official_course.mjs"
   }
 }
