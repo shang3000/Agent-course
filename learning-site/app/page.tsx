@@ -38,9 +38,9 @@ export default function Home() {
           <p className="nav-heading">第 1 单元 · 智能体基础</p>
           <Link className="nav-item active" href="/"><span>01</span>什么是智能体？</Link>
           <Link className="nav-item" href="/unit1/llm"><span>02</span>LLM、Token 与消息</Link>
-          <a className="nav-item muted" href="#"><span>03</span>工具与行动</a>
+          <Link className="nav-item" href="/course#unit1-tools"><span>03</span>工具与行动</Link>
           <a className="nav-item" href="#loop"><span>04</span>Agent 工作循环</a>
-          <a className="nav-item muted" href="#"><span>05</span>第一个智能体</a>
+          <Link className="nav-item" href="/course#unit1-first-agent"><span>05</span>第一个智能体</Link>
         </nav>
         <div className="sidebar-note"><span>本节目标</span><p>能用自己的话解释 Agent、LLM 和工具之间的关系。</p></div>
       </aside>

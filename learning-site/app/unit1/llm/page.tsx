@@ -45,9 +45,9 @@ export default function LLMLesson() {
           <p className="nav-heading">第 1 单元 · 智能体基础</p>
           <Link className="nav-item" href="/"><span>01</span>什么是智能体？</Link>
           <Link className="nav-item active" href="/unit1/llm"><span>02</span>LLM、Token 与消息</Link>
-          <a className="nav-item muted" href="#"><span>03</span>工具与行动</a>
+          <Link className="nav-item" href="/course#unit1-tools"><span>03</span>工具与行动</Link>
           <Link className="nav-item" href="/#loop"><span>04</span>Agent 工作循环</Link>
-          <a className="nav-item muted" href="#"><span>05</span>第一个智能体</a>
+          <Link className="nav-item" href="/course#unit1-first-agent"><span>05</span>第一个智能体</Link>
         </nav>
         <div className="sidebar-note blue-note"><span>本节目标</span><p>能解释 Token、下一个 Token 预测、消息角色和聊天模板。</p></div>
       </aside>

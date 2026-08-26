@@ -25,16 +25,33 @@ export default function CourseHub() {
     return () => window.clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const handleHistory = () => {
+      const id = window.location.hash.replace('#', '');
+      if (courseLessons.some((item) => item.id === id)) {
+        setActiveId(id);
+        setQuizChoice(null);
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+    };
+    window.addEventListener('popstate', handleHistory);
+    return () => window.removeEventListener('popstate', handleHistory);
+  }, []);
+
   const lesson = useMemo(() => courseLessons.find((item) => item.id === activeId) || courseLessons[0], [activeId]);
   const currentIndex = courseLessons.findIndex((item) => item.id === lesson.id);
   const totalDone = completed.length;
   const totalLessons = courseLessons.length + existingLessons.length;
 
   function selectLesson(id: string) {
+    if (id === activeId) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      return;
+    }
     setActiveId(id);
     setQuizChoice(null);
-    window.history.replaceState(null, '', `/course#${id}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.history.pushState(null, '', `/course#${id}`);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
   function toggleComplete() {
@@ -87,7 +104,7 @@ export default function CourseHub() {
           <div className="course-toplinks"><Link href="/">第一课</Link><Link href="/unit1/llm">第二课</Link><a href="https://huggingface.co/learn/agents-course/zh-CN" target="_blank" rel="noreferrer">官方课程 ↗</a></div>
         </header>
 
-        <article className={`course-article accent-${lesson.accent}`}>
+        <article className={`course-article accent-${lesson.accent}`} aria-live="polite">
           <section className="course-hero">
             <div className="course-breadcrumb"><span>{lesson.unit}</span><i>/</i><b>{lesson.number}</b></div>
             <h1>{lesson.title}</h1>

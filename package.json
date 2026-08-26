@@ -1,0 +1,11 @@
+{
+  "name": "agent-course-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix learning-site run dev",
+    "build": "npm --prefix learning-site run build",
+    "lint": "npm --prefix learning-site run lint",
+    "start": "npm --prefix learning-site run start"
+  }
+}
