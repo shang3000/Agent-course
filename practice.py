@@ -1,1 +1,1 @@
-# 绕太
+print("hwiuhe")

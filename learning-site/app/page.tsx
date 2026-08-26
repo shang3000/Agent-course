@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const steps = [
   { key: '01', name: '思考 Thought', short: '先判断自己缺少什么信息', example: '“用户想知道巴黎现在是否需要带伞，我还不知道实时天气。”', color: 'blue' },
@@ -15,7 +16,8 @@ export default function Home() {
   const [demoRunning, setDemoRunning] = useState(false);
 
   useEffect(() => {
-    setCompleted(localStorage.getItem('agent-unit1-lesson1') === 'done');
+    const timer = window.setTimeout(() => setCompleted(localStorage.getItem('agent-unit1-lesson1') === 'done'), 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   function finishLesson() {
@@ -34,11 +36,11 @@ export default function Home() {
         </div>
         <nav aria-label="课程章节">
           <p className="nav-heading">第 1 单元 · 智能体基础</p>
-          <a className="nav-item active" href="#story"><span>01</span>什么是智能体？</a>
-          <a className="nav-item" href="#loop"><span>02</span>工作循环</a>
-          <a className="nav-item" href="#compare"><span>03</span>Agent 与 LLM</a>
-          <a className="nav-item muted" href="#"><span>04</span>消息与特殊 Token</a>
-          <a className="nav-item muted" href="#"><span>05</span>工具与行动</a>
+          <Link className="nav-item active" href="/"><span>01</span>什么是智能体？</Link>
+          <Link className="nav-item" href="/unit1/llm"><span>02</span>LLM、Token 与消息</Link>
+          <a className="nav-item muted" href="#"><span>03</span>工具与行动</a>
+          <a className="nav-item" href="#loop"><span>04</span>Agent 工作循环</a>
+          <a className="nav-item muted" href="#"><span>05</span>第一个智能体</a>
         </nav>
         <div className="sidebar-note"><span>本节目标</span><p>能用自己的话解释 Agent、LLM 和工具之间的关系。</p></div>
       </aside>
@@ -46,7 +48,7 @@ export default function Home() {
       <section className="content">
         <header className="topbar">
           <span className="eyebrow">HUGGING FACE AGENTS COURSE · 中文伴读</span>
-          <div className="top-actions"><span className="status-dot" />本地学习模式</div>
+          <div className="top-actions"><span className="status-dot" />本地学习模式　<Link href="/course">完整课程中心 →</Link></div>
         </header>
 
         <article>
@@ -97,7 +99,7 @@ export default function Home() {
               <div className="part-connector">→</div>
               <div className="part-card brain"><span>02 · 模型</span><h3>下一步做什么？</h3><p>LLM 理解任务、规划步骤，并选择合适工具。</p><code>需要先获取实时天气</code></div>
               <div className="part-connector">→</div>
-              <div className="part-card tool"><span>03 · 工具</span><h3>怎样影响环境？</h3><p>真正执行搜索、计算、读文件或调用 API。</p><code>weather(city="Dalian")</code></div>
+              <div className="part-card tool"><span>03 · 工具</span><h3>怎样影响环境？</h3><p>真正执行搜索、计算、读文件或调用 API。</p><code>{'weather(city="Dalian")'}</code></div>
               <div className="part-connector down">↙</div>
               <div className="part-card loop"><span>04 · 循环</span><h3>结果够不够？</h3><p>把观察送回模型；不够就继续，够了才回答。</p><code>while not solved: next_step()</code></div>
             </div>
@@ -144,7 +146,7 @@ export default function Home() {
             <button onClick={finishLesson} className={completed ? 'completed' : ''}>{completed ? '已完成 · 进度已保存' : '我已看懂，完成本节'}</button>
           </section>
 
-          <section className="coming-next"><span>下一课</span><div><h2>LLM 为什么能当 Agent 的“大脑”？</h2><p>从“预测下一个 token”开始，拆解消息、角色和聊天模板。</p></div><span className="arrow">→</span></section>
+          <Link className="coming-next" href="/unit1/llm"><span>下一课</span><div><h2>LLM 为什么能当 Agent 的“大脑”？</h2><p>从“预测下一个 token”开始，拆解消息、角色和聊天模板。</p></div><span className="arrow">→</span></Link>
         </article>
       </section>
     </main>
