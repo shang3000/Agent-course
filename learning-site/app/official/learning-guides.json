@@ -1,0 +1,152 @@
+{
+  "unit1/introduction": {
+    "objectives": ["看清 Unit 1 的学习路线与最终产出", "知道理论、手写循环和 smolagents 实践之间的先后关系"],
+    "prerequisites": ["会阅读基础 Python 代码", "知道模型能接收文本并生成文本即可"],
+    "plain": "这一页不是知识点目录，而是一张施工图：先认识 Agent 的组成，再理解 Thought–Action–Observation 循环，最后亲手让 Alfred 调用工具。先知道终点，后面每页才不会变成孤立术语。",
+    "keyConcepts": [{"term": "学习主线", "explanation": "LLM 负责判断，工具负责执行，循环把判断和环境反馈连接起来。"}, {"term": "最终产出", "explanation": "完成一个 smolagents 智能体，并用测验检查基础概念。"}],
+    "misconceptions": ["看完所有页面不等于学会；本单元至少要产出一个能运行的 Agent。", "发布到 Space 是展示方式，不是理解 Agent 原理的替代品。"],
+    "practice": ["用一张纸画出本单元路线：LLM → 消息 → 工具 → Agent 循环 → 实作。", "写下你希望 Alfred 完成的一个真实任务，并标出它可能需要的工具。"],
+    "recall": ["不看正文，说出 Unit 1 最终要完成的作品。", "为什么要先学消息与工具，再学完整 Agent 循环？"],
+    "mastery": ["能用两分钟复述本单元路线", "能提出一个包含目标、工具和环境反馈的 Agent 任务"]
+  },
+  "unit1/what-are-agents": {
+    "objectives": ["用目标、模型、工具和环境解释 Agent", "区分普通聊天模型与具备行动能力的 Agent"],
+    "prerequisites": ["知道 LLM 可以根据提示生成文本", "理解程序可以调用函数或 API"],
+    "plain": "Agent 是目标驱动的执行者：模型判断下一步，程序执行工具，环境返回结果，模型再决定是否继续。它和聊天机器人的关键差别不是说话方式，而是能否选择行动并利用行动结果推进目标。",
+    "keyConcepts": [{"term": "Agent", "explanation": "利用模型观察环境，并通过工具采取行动以实现目标的系统。"}, {"term": "Agency", "explanation": "系统自主决定和执行步骤的程度，不是非黑即白的标签。"}, {"term": "环境", "explanation": "Agent 行动发生并返回反馈的外部世界，例如网页、数据库或文件系统。"}],
+    "misconceptions": ["能连续聊天不等于是 Agent。", "模型本身通常不会亲自执行函数；宿主程序才是执行者。", "自主程度越高不一定越好，还要考虑权限、成本和可靠性。"],
+    "practice": ["把“查询大连天气并决定是否带伞”拆成目标、模型、工具、行动和观察。", "为一个普通问答机器人增加最小行动能力，并说明新增了什么。"],
+    "recall": ["不看正文，用一句话定义 Agent。", "Agent 与 LLM 的关系是什么？", "什么证据能证明一个系统不只是聊天机器人？"],
+    "mastery": ["能准确指出一个系统中的模型、工具和环境", "能根据行动自主程度比较两个系统", "能举出一个反例说明“会聊天”不等于 Agent"]
+  },
+  "unit1/quiz1": {
+    "objectives": ["在继续学习前检查 Agent 基础概念", "定位自己对 Agent 定义、自主性和工具的薄弱点"],
+    "prerequisites": ["已读“什么是智能体？”", "能区分目标、行动和观察"],
+    "plain": "这页的价值不是拿到分数，而是强迫自己先从记忆中提取概念。先遮住解析独立作答，再回到正文寻找证据；猜对但说不出理由仍算没有掌握。",
+    "keyConcepts": [{"term": "检索练习", "explanation": "主动从记忆中提取答案，比反复重读更能暴露知识缺口。"}, {"term": "证据定位", "explanation": "每个答案都应能对应到正文中的定义或例子。"}],
+    "misconceptions": ["选对答案不代表能够迁移到真实案例。", "看到解析后觉得“我本来就会”是一种熟悉感，不是可靠掌握。"],
+    "practice": ["不看解析完成全部题目，并为每题写一句理由。", "把一道选择题改写成现实场景判断题。"],
+    "recall": ["哪一道题最不确定？不确定来自哪个概念？", "不用选项，重新说出 Agent 的定义。"],
+    "mastery": ["每题都能先独立作答", "每个选择都能引用概念理由而不是凭感觉", "错题能回到对应正文并修正解释"]
+  },
+  "unit1/what-are-llms": {
+    "objectives": ["理解 LLM 如何接收 token 并生成后续 token", "解释 LLM 在 Agent 中承担判断而非执行的角色"],
+    "prerequisites": ["知道文本可被程序编码成数字", "理解训练与使用模型是两个阶段"],
+    "plain": "LLM 本质上是根据上下文预测接下来 token 的模型。它能生成计划、参数或代码，但这些输出仍是文本；Agent 外层程序要把文本解析成行动、执行，再把结果送回模型。",
+    "keyConcepts": [{"term": "Token", "explanation": "模型读写的文本片段单位，不一定等于一个完整单词。"}, {"term": "Next-token prediction", "explanation": "根据已有上下文估计下一个 token 的概率。"}, {"term": "Attention", "explanation": "让模型在生成时关注上下文中相关位置的机制。"}, {"term": "Prompt", "explanation": "发送给模型、用于约束任务与输出的上下文。"}],
+    "misconceptions": ["流畅回答不保证事实正确。", "LLM 生成“调用天气工具”不等于天气工具已经执行。", "训练数据中的知识和实时环境状态不是一回事。"],
+    "practice": ["用纸笔模拟三个候选 token 的概率并选择下一个 token。", "把一次工具调用分成“模型生成”和“程序执行”两列。"],
+    "recall": ["LLM 为什么能续写文本？", "它在 Agent 循环里负责哪一步，不负责哪一步？", "为什么实时天气不能只依赖模型参数？"],
+    "mastery": ["能解释 token、prompt 和生成之间的关系", "能指出 LLM 输出与真实行动的边界", "能说明为什么 Agent 需要外部工具"]
+  },
+  "unit1/messages-and-special-tokens": {
+    "objectives": ["理解 system、user、assistant 消息如何组成模型输入", "解释聊天模板与特殊 token 的作用"],
+    "prerequisites": ["理解 token 和 prompt", "见过 Python 列表与字典"],
+    "plain": "聊天界面里的多条消息最终会被聊天模板拼成一条带角色标记的 token 序列。角色不是三个不同模型；它们是告诉同一个模型“这段话是谁说的、应该怎样继续”的结构。",
+    "keyConcepts": [{"term": "System message", "explanation": "描述模型行为、任务边界和可用工具的高层指令。"}, {"term": "User message", "explanation": "用户本轮提出的请求或信息。"}, {"term": "Assistant message", "explanation": "模型先前的输出，作为后续上下文的一部分。"}, {"term": "Chat template", "explanation": "把结构化消息转换为模型实际读取的文本和特殊 token。"}, {"term": "EOS", "explanation": "指示一个生成序列结束的特殊 token。"}],
+    "misconceptions": ["模型不会自动永久记住历史；应用需要重新提交所需消息。", "不同模型的聊天模板未必兼容。", "角色名只是结构约定，不等于权限机制天然安全。"],
+    "practice": ["把三条角色消息手工拼成一段带角色标签的提示。", "删除历史中的关键 Observation，预测下一轮回答会怎样变化。"],
+    "recall": ["消息列表为什么还要经过聊天模板？", "EOS token 解决什么问题？", "应用为什么必须管理对话历史？"],
+    "mastery": ["能画出 messages → template → tokens → generation 的流程", "能解释三种消息角色", "能判断模板或历史丢失导致的异常"]
+  },
+  "unit1/tools": {
+    "objectives": ["理解工具的名称、描述、参数和返回值", "知道模型如何选择工具、程序如何执行工具", "认识 MCP 在工具标准化中的位置"],
+    "prerequisites": ["会定义基础 Python 函数", "理解 JSON 或字典形式的参数"],
+    "plain": "工具是 Agent 可调用的外部能力。模型看到的通常不是函数源码，而是工具说明和参数 schema；模型据此生成调用意图，执行器验证参数并运行函数，再把结果作为 Observation 返回。",
+    "keyConcepts": [{"term": "Tool schema", "explanation": "机器可读的名称、用途、参数类型与约束。"}, {"term": "Tool description", "explanation": "帮助模型判断何时以及怎样调用工具的说明。"}, {"term": "Executor", "explanation": "校验参数、运行真实函数并返回结果的宿主程序。"}, {"term": "MCP", "explanation": "以统一协议连接模型应用与外部工具、数据和资源。"}],
+    "misconceptions": ["工具越多不一定越好；重叠描述会增加选错概率。", "只有函数名而没有清晰参数说明，模型很难稳定调用。", "让模型生成参数不能替代权限控制、校验和错误处理。"],
+    "practice": ["为 get_weather(city) 写完整工具 schema，包括错误返回。", "设计两个容易混淆的工具，再修改描述使边界清晰。"],
+    "recall": ["模型实际看到了工具的哪些信息？", "谁负责真正执行函数？", "为什么返回值也要清晰、稳定？"],
+    "mastery": ["能独立写出一个明确的工具 schema", "能解释选择、验证、执行、观察四步", "能识别描述含糊和参数不安全的问题"]
+  },
+  "unit1/quiz2": {
+    "objectives": ["检查 LLM、消息、特殊 token 与工具之间的连接", "用错题确定进入完整 Agent 循环前的复习点"],
+    "prerequisites": ["已读 LLM、消息与工具三页", "能区分模型输出和工具执行"],
+    "plain": "这组题考的是组件之间的关系。作答时不要只找熟悉词语，要追问：输入怎样变成 token？模型怎样产生行动描述？哪个程序真正改变环境？",
+    "keyConcepts": [{"term": "组件边界", "explanation": "LLM 生成、消息格式化、工具执行分别由不同层负责。"}, {"term": "错因分类", "explanation": "将错误归因到定义不清、流程不清或边界混淆。"}],
+    "misconceptions": ["工具不是只生成文本的流程。", "特殊 token 不是为了随机增加回答多样性。", "聊天消息不会未经转换直接成为模型内部命令。"],
+    "practice": ["先不看解析完成五题，并画出每题涉及的组件。", "对每个错误答案说明它具体错在哪里。"],
+    "recall": ["用一句话串起消息、LLM、工具与环境。", "哪种错误选项最容易骗到你，为什么？"],
+    "mastery": ["五题均能独立回答并解释理由", "能从错误选项反推出正确组件边界", "能把同一概念应用到新工具案例"]
+  },
+  "unit1/agent-steps-and-structure": {
+    "objectives": ["掌握 Thought → Action → Observation 循环", "理解 Observation 如何触发重新规划", "能用天气案例追踪每轮状态"],
+    "prerequisites": ["理解 LLM、消息与工具", "知道工具结果会回到消息上下文"],
+    "plain": "Agent 不是一次性输出计划，而是在循环中工作：先根据当前上下文决定行动，执行后读取真实反馈，再更新下一步。Observation 可能证明原计划正确，也可能迫使 Agent 改路。",
+    "keyConcepts": [{"term": "Thought", "explanation": "基于当前上下文形成的推理、计划或下一步判断。"}, {"term": "Action", "explanation": "发送给工具或环境的可执行请求。"}, {"term": "Observation", "explanation": "行动执行后返回、会影响下一轮判断的反馈。"}, {"term": "Loop", "explanation": "重复判断、行动、观察，直到达到终止条件。"}],
+    "misconceptions": ["这不是只运行一次的固定三步流水线。", "计划不能替代真实 Observation。", "生产系统不应默认公开完整内部推理，更适合记录结构化行动与结果。"],
+    "practice": ["逐轮写出“查天气并决定带伞”的 Thought、Action、Observation。", "加入一次工具超时，写出下一轮应如何调整。"],
+    "recall": ["为什么 Observation 必须进入下一轮上下文？", "循环在什么条件下应该结束？", "工具失败后为什么不应直接伪造最终答案？"],
+    "mastery": ["能从日志中标出三类步骤", "能解释重新规划发生的原因", "能为循环设计成功、失败和步数上限三种终止条件"]
+  },
+  "unit1/thoughts": {
+    "objectives": ["理解 Thought 在规划、分析和决策中的作用", "认识 ReAct 如何交替推理与行动", "知道并非所有 Agent 都显式输出思考文本"],
+    "prerequisites": ["掌握 Agent 三步循环", "理解 prompt 提供当前上下文"],
+    "plain": "Thought 是 Agent 根据目标和已有观察形成的内部判断，例如拆任务、比较选项或决定调用哪个工具。ReAct 把推理与行动交替组织起来；有些函数调用模型会直接产生结构化行动，不一定展示一段显式思考。",
+    "keyConcepts": [{"term": "Planning", "explanation": "把目标拆成可执行步骤并安排顺序。"}, {"term": "ReAct", "explanation": "让推理与行动交替发生，以环境反馈修正后续决策。"}, {"term": "Reflection", "explanation": "根据失败或观察评估已有策略并调整。"}],
+    "misconceptions": ["Thought 不是事实来源，仍可能基于错误假设。", "看见长篇推理不等于结果更可靠。", "函数调用 Agent 可能没有可见思考文本，但仍在做行动选择。"],
+    "practice": ["为“比较两座城市天气后选出行地”写三步计划，不执行工具。", "给计划加入一个缺失信息，说明应在哪一步请求工具。"],
+    "recall": ["Thought 能承担哪些类型的工作？", "ReAct 为什么要把推理和行动交替？", "没有显式 Thought 文本是否一定不是 Agent？"],
+    "mastery": ["能把目标拆成合理步骤", "能区分假设与已观察事实", "能说明显式推理的用途与局限"]
+  },
+  "unit1/actions": {
+    "objectives": ["区分 JSON、代码和函数调用三种行动表达", "理解 stop-and-parse 的执行边界", "评估代码 Agent 的能力与风险"],
+    "prerequisites": ["理解工具 schema", "掌握 Thought–Action–Observation 循环"],
+    "plain": "Action 是把决定变成环境交互的那一步。模型先生成结构化参数、代码或函数调用，系统在明确边界处停止生成，解析并执行，随后把结果送回模型。表达格式不同，但都需要受控执行器。",
+    "keyConcepts": [{"term": "JSON action", "explanation": "用结构化对象表达工具名和参数。"}, {"term": "Code action", "explanation": "用代码组合多个操作，表达力强但执行风险更高。"}, {"term": "Function calling", "explanation": "模型按工具 schema 生成结构化函数调用。"}, {"term": "Stop and parse", "explanation": "在行动结束标记处停止生成，解析内容后再执行。"}],
+    "misconceptions": ["模型输出的代码不能默认直接信任或无限权执行。", "JSON 格式正确不代表参数语义正确。", "Action 文本生成完成不等于环境已经改变。"],
+    "practice": ["把同一天气查询分别写成 JSON action 和 Python code action。", "列出执行模型生成代码时需要的三条安全限制。"],
+    "recall": ["三种行动表达的共同点是什么？", "stop-and-parse 为什么必要？", "Code Agent 的表达力为何同时带来风险？"],
+    "mastery": ["能识别三种行动格式", "能设计解析、校验和执行边界", "能说明至少三项代码执行安全措施"]
+  },
+  "unit1/observations": {
+    "objectives": ["理解 Observation 是环境反馈而不是模型猜测", "知道如何把工具结果加入下一轮上下文", "能根据观察修正策略"],
+    "prerequisites": ["理解 Action 如何被执行", "知道消息历史会再次提交给模型"],
+    "plain": "Observation 是行动之后从环境得到的证据，例如 API 返回、错误信息或文件变化。系统把它追加到上下文，下一轮 Thought 才能基于真实结果继续；没有这一环，Agent 只是在自说自话。",
+    "keyConcepts": [{"term": "Environment feedback", "explanation": "工具或外部系统对行动给出的实际返回。"}, {"term": "State update", "explanation": "把新证据写入 Agent 当前上下文或状态。"}, {"term": "Re-planning", "explanation": "观察与预期不符时修改后续步骤。"}],
+    "misconceptions": ["模型自己续写的“Observation:”不是可信的真实工具结果。", "只记录成功结果会隐藏最有价值的失败信息。", "原始返回可能过长或含敏感信息，需要规范化后再进入上下文。"],
+    "practice": ["为成功、超时、参数错误三种工具结果分别写 Observation。", "给一个错误 Observation 设计下一轮重试或降级策略。"],
+    "recall": ["Observation 与模型预测有什么本质区别？", "为什么错误信息也应该进入状态？", "哪些返回内容不应原样交给模型？"],
+    "mastery": ["能区分真实反馈与模型臆造", "能把工具结果规范化为下一轮输入", "能针对失败观察写出合理调整"]
+  },
+  "unit1/dummy-agent-library": {
+    "objectives": ["不用框架手工串起最小 Agent 循环", "理解聊天模板、停止序列、工具执行和续写的连接", "识别模型伪造 Observation 的问题"],
+    "prerequisites": ["掌握消息、工具和三步循环", "能运行基础 Python 并理解 API 调用"],
+    "plain": "这一页把框架平时替你做的事全部摊开：准备系统提示和工具说明，调用模型生成 Action，在 Observation 标记前停止，程序执行工具，把真实结果追加回提示，再让模型继续生成最终答案。",
+    "keyConcepts": [{"term": "Manual loop", "explanation": "由自己的代码显式管理生成、解析、执行和回填。"}, {"term": "Stop sequence", "explanation": "阻止模型越过行动边界并自行编造环境反馈。"}, {"term": "HF_TOKEN", "explanation": "调用 Hugging Face 推理服务的凭据，应通过环境变量安全提供。"}, {"term": "Chat template", "explanation": "让 instruct 模型按训练时预期格式接收消息。"}],
+    "misconceptions": ["模型输出“Observation”不代表工具真的运行过。", "直接把消息文本送给 instruct 模型而不用匹配的聊天模板可能导致结束行为异常。", "Token 不应硬编码、提交到 Git 或显示在日志里。"],
+    "practice": ["画出该示例两次模型调用之间，宿主程序做了什么。", "把真实 API 替换成本地假天气函数，保留完整循环并运行。"],
+    "recall": ["为什么第一次生成要在 Observation 前停止？", "真实工具结果怎样进入第二次生成？", "框架替我们隐藏了哪些步骤？"],
+    "mastery": ["能复述并实现最小手工循环", "能解释 stop sequence 的必要性", "能在无 Token 情况下用本地工具演示同样的数据流"]
+  },
+  "unit1/tutorial": {
+    "objectives": ["使用 smolagents CodeAgent 组装首个 Agent", "能定义带类型和文档字符串的工具", "理解模型、工具、步数与界面配置"],
+    "prerequisites": ["理解手工 Agent 循环", "会创建 Python 环境并安装包", "需要联网实践时准备具备推理权限的 HF Token"],
+    "plain": "smolagents 把手工循环封装起来，但核心数据流没有变化。你要做的是选择模型、提供描述清楚的工具、设置执行边界，然后通过运行日志观察 CodeAgent 怎样思考、写代码、执行并获得结果。",
+    "keyConcepts": [{"term": "CodeAgent", "explanation": "通过生成并执行代码来组合工具行动的 smolagents Agent。"}, {"term": "@tool", "explanation": "把带类型标注和规范文档字符串的函数暴露为工具。"}, {"term": "InferenceClientModel", "explanation": "封装 Hugging Face 推理 API 的模型接口。"}, {"term": "max_steps", "explanation": "限制 Agent 循环最大步数，避免无限运行。"}],
+    "misconceptions": ["使用框架不等于可以不理解底层循环。", "示例中的空工具必须改造后才有实际用途。", "load_tool(..., trust_remote_code=True) 会执行远程代码，只能信任经过审查的来源。", "API Token 应存入 Space Secret 或本地环境变量。"],
+    "practice": ["先只添加时区工具运行一次，保存完整日志。", "再添加搜索工具，比较 Agent 的工具选择。", "人为输入无效时区，记录错误如何成为 Observation。"],
+    "recall": ["CodeAgent 与上一页手工循环的对应关系是什么？", "为什么工具函数需要类型和参数文档？", "max_steps 解决什么风险？"],
+    "mastery": ["能独立创建并运行含至少一个有效工具的 CodeAgent", "能从日志标出行动与观察", "能触发并解释一个失败场景", "能说明远程工具代码与 Token 的安全边界"]
+  },
+  "unit1/final-quiz": {
+    "objectives": ["综合检查 Unit 1 的概念和流程", "用错题确定是否具备进入后续框架单元的基础", "了解官方证书提交要求"],
+    "prerequisites": ["完成 Unit 1 全部正文与两次快速自测", "至少运行过一次手工循环或 smolagents Agent"],
+    "plain": "最终测验是外部 Hugging Face Space 中的综合检查。先独立完成，再按错题回到本地对应页面；通过后要在官方测验中提交，成绩才会保存。证书是结果记录，真正的门槛是你能否解释和实现循环。",
+    "keyConcepts": [{"term": "综合检索", "explanation": "从多个页面提取概念并解决混合问题。"}, {"term": "官方提交", "explanation": "测验通过后仍需点击 Submit，官方系统才保存成绩。"}],
+    "misconceptions": ["证书不能证明你能调试真实 Agent。", "外部 iframe 加载失败不等于课程内容丢失，可用官方链接打开。", "只记住选择题答案无法替代一次可运行实践。"],
+    "practice": ["完成官方测验并记录错题对应页面。", "关闭网页后手绘完整 Agent 数据流。", "重新运行自己的 Agent，并解释一条执行日志。"],
+    "recall": ["Unit 1 哪三个组件最容易混淆？", "从用户请求到最终答案，中间发生了哪些步骤？", "如果工具返回错误，循环应该怎样继续？"],
+    "mastery": ["通过官方测验并完成提交", "能在无提示下画出完整循环", "能运行一个 Agent 并解释其日志", "能针对至少一个失败场景提出修复"]
+  },
+  "unit1/conclusion": {
+    "objectives": ["整合 Unit 1 的核心知识", "判断自己是真掌握还是只完成阅读", "为函数调用与框架深入学习准备问题清单"],
+    "prerequisites": ["已完成 Unit 1 正文、实践与最终测验", "保留自己的 Agent 运行记录"],
+    "plain": "结尾页不是结束按钮，而是一次交付检查：你应当能把 LLM、消息、工具和循环连成一个系统，能运行作品，也能解释失败。做不到的部分要转成明确复习任务，再进入后续单元。",
+    "keyConcepts": [{"term": "知识整合", "explanation": "把零散概念连接成可解释、可运行的数据流。"}, {"term": "迁移", "explanation": "把课程例子换成新任务仍能独立设计和实现。"}, {"term": "反思", "explanation": "根据测验、日志和失败记录确定下一轮学习重点。"}],
+    "misconceptions": ["浏览到最后一页不代表掌握。", "只成功运行一次不能证明系统稳健。", "框架 API 记忆不如理解组件边界和失败路径重要。"],
+    "practice": ["用自己的话写一份不超过 200 字的 Unit 1 总结。", "把 Alfred 的任务换成新的真实任务，重新定义工具和成功标准。", "整理一个“仍不理解”清单并链接到对应页面。"],
+    "recall": ["不用术语堆砌，向非技术同学解释 Agent。", "手工循环与 smolagents 的不变量是什么？", "你当前最容易诊断哪类失败，最不会诊断哪类？"],
+    "mastery": ["能从零解释并画出 Agent 循环", "能完成一个新场景的工具设计", "能运行、观察并诊断至少一个失败", "能明确列出下一阶段要补的知识缺口"]
+  }
+}

@@ -1,0 +1,7 @@
+# 真实 Agent 框架实验。先完成 Unit 1 离线练习，再按需安装。
+-r requirements.txt
+
+# 2026-08-27 核对的 PyPI 稳定版本，均声明支持 Python >= 3.10。
+smolagents==1.26.0
+llama-index==0.14.24
+langgraph==1.2.11

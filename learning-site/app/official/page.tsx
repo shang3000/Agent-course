@@ -6,30 +6,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import course from './generated-manifest.json';
+import learningGuides from './learning-guides.json';
+import generatedQuizzes from './generated-quizzes.json';
+import OfficialQuiz, { type OfficialQuizData } from './official-quiz';
 
-const annotations: Record<string, { summary: string; watch: string; practice?: string }> = {
-  'unit1/what-are-agents': {
-    summary: '把 Alfred 当成“目标驱动的执行者”来读：模型负责判断，工具负责改变环境，循环负责根据结果继续推进。',
-    watch: '不要把“能聊天”当成 Agent 的充分条件。关键证据是它能否选择行动并读取行动结果。',
-    practice: '读完后，尝试用“查大连天气并决定是否带伞”替换 Alfred 的咖啡案例。',
-  },
-  'unit1/what-are-llms': {
-    summary: '这一页解释 Agent 的“大脑”从哪里来。重点不是背模型名称，而是理解 LLM 接收文本、预测 token、产生下一步意图。',
-    watch: 'LLM 生成工具调用描述，不等于模型亲自执行了函数。执行发生在模型外部的程序中。',
-  },
-  'unit1/messages-and-special-tokens': {
-    summary: '界面里的多轮聊天最终会被聊天模板拼成模型看到的一条 token 序列。角色只是结构标记，不是三个独立模型。',
-    watch: '模型不会凭空保存聊天记忆；应用必须在下一次请求中重新提交所需历史。',
-  },
-  'unit1/tools': {
-    summary: '工具是有名称、说明、参数和返回值的可执行能力。模型首先看到的是工具描述，因此 schema 写得清楚非常重要。',
-    watch: '工具越多不一定越好。重叠、含糊的工具会让模型更难选择，也会扩大安全风险。',
-  },
-  'unit1/agent-steps-and-structure': {
-    summary: '把 Thought → Action → Observation 看成一个循环，而不是一次性流水线；Observation 会改变下一轮决策。',
-    watch: '真实系统不应默认公开完整内部推理，调试时更适合记录结构化步骤、工具参数和结果。',
-  },
-};
+type LearningGuide = (typeof learningGuides)[keyof typeof learningGuides];
 
 type CoursePage = (typeof course.pages)[number];
 
@@ -65,7 +46,9 @@ export default function OfficialCourseReader() {
 
   const page = course.pages.find((item) => item.id === activeId) || course.pages[0];
   const pageIndex = course.pages.findIndex((item) => item.id === page.id);
-  const annotation = annotations[page.id];
+  const guide = (learningGuides as Record<string, LearningGuide>)[page.id];
+  const quiz = (generatedQuizzes as Record<string, OfficialQuizData>)[page.id];
+  const reviewPage = course.pages[Math.max(0, pageIndex - 1)];
 
   useEffect(() => {
     let cancelled = false;
@@ -179,21 +162,50 @@ export default function OfficialCourseReader() {
             <button className={mode === 'source' ? 'active' : ''} onClick={() => setMode('source')} role="tab" aria-selected={mode === 'source'}>原始 MDX</button>
           </div>
 
-          {annotation && mode === 'read' && (
-            <aside className="hinata-annotation">
-              <span>HINATA 批注 · 与官方正文分离</span>
-              <h2>读这一页时抓住什么？</h2>
-              <p>{annotation.summary}</p>
-              <div><strong>容易误会</strong><p>{annotation.watch}</p></div>
-              {annotation.practice && <div><strong>读后练习</strong><p>{annotation.practice}</p></div>}
-            </aside>
+          {guide && mode === 'read' && (
+            <section className="learning-guide" aria-labelledby="learning-guide-title">
+              <header>
+                <span>HINATA 学习层 · 不替代官方正文</span>
+                <h2 id="learning-guide-title">先学会，再往下翻</h2>
+                <p>{guide.plain}</p>
+              </header>
+
+              <div className="learning-guide-overview">
+                <GuideList title="本页目标" items={guide.objectives} />
+                <GuideList title="开始前应会" items={guide.prerequisites} />
+              </div>
+
+              <div className="learning-concepts">
+                <h3>关键概念</h3>
+                <div>
+                  {guide.keyConcepts.map((concept) => (
+                    <article key={concept.term}><strong>{concept.term}</strong><p>{concept.explanation}</p></article>
+                  ))}
+                </div>
+              </div>
+
+              <div className="learning-guide-grid">
+                <GuideList title="容易误解" items={guide.misconceptions} tone="warning" />
+                <GuideList title="动手任务" items={guide.practice} tone="action" />
+                <GuideList title="合上正文后回答" items={guide.recall} tone="recall" />
+                <GuideList title="做到这些才算掌握" items={guide.mastery} tone="mastery" />
+              </div>
+            </section>
           )}
 
           {contentState?.pageId === page.id && contentState.status === 'error' ? (
             <div className="official-load-state error"><strong>正文加载失败</strong><p>请确认本地服务仍在运行，然后刷新页面。</p></div>
           ) : contentState?.pageId !== page.id || contentState.status !== 'ready' ? (
             <div className="official-load-state"><strong>正在读取官方原文…</strong><p>目录已经就绪，正文文件正在从本地载入。</p></div>
-          ) : mode === 'read' ? (
+          ) : mode === 'read' ? quiz ? (
+            <OfficialQuizReading
+              readable={contentState.readable}
+              pageId={page.id}
+              quiz={quiz}
+              reviewLabel={reviewPage.title}
+              onReview={() => selectPage(reviewPage)}
+            />
+          ) : (
             <div className="official-markdown">
               <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{contentState.readable}</ReactMarkdown>
             </div>
@@ -214,5 +226,31 @@ export default function OfficialCourseReader() {
         </article>
       </section>
     </main>
+  );
+}
+
+function GuideList({ title, items, tone = 'default' }: { title: string; items: readonly string[]; tone?: 'default' | 'warning' | 'action' | 'recall' | 'mastery' }) {
+  return (
+    <section className={`guide-list ${tone}`}>
+      <h3>{title}</h3>
+      <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+    </section>
+  );
+}
+
+function OfficialQuizReading({ readable, pageId, quiz, reviewLabel, onReview }: { readable: string; pageId: string; quiz: OfficialQuizData; reviewLabel: string; onReview: () => void }) {
+  const firstQuestion = readable.search(/^###\s+/m);
+  const lastAnswers = readable.lastIndexOf('#### 官方测验选项与解析');
+  const tailMatch = lastAnswers >= 0 ? readable.slice(lastAnswers).match(/\r?\n---\r?\n/) : null;
+  const tailStart = tailMatch?.index === undefined ? readable.length : lastAnswers + tailMatch.index + tailMatch[0].length;
+  const intro = firstQuestion >= 0 ? readable.slice(0, firstQuestion) : readable;
+  const outro = readable.slice(tailStart);
+
+  return (
+    <>
+      <div className="official-markdown quiz-fragment"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{intro}</ReactMarkdown></div>
+      <OfficialQuiz key={pageId} pageId={pageId} data={quiz} reviewLabel={reviewLabel} onReview={onReview} />
+      {outro.trim() && <div className="official-markdown quiz-fragment outro"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{outro}</ReactMarkdown></div>}
+    </>
   );
 }
