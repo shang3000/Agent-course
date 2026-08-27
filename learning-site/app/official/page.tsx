@@ -6,17 +6,26 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import course from './generated-manifest.json';
-import learningGuides from './learning-guides.json';
-import generatedQuizzes from './generated-quizzes.json';
 import OfficialQuiz, { type OfficialQuizData } from './official-quiz';
+import Unit1Mastery from './unit1-mastery';
+import PageLearningTools from './page-learning-tools';
+import LearningSupport from './learning-support';
+import LearningCodeBlock from './learning-code-block';
+import { LearningIframe, LearningImage } from './learning-media';
 
-type LearningGuide = (typeof learningGuides)[keyof typeof learningGuides];
+type LearningGuide = { objectives: string[]; prerequisites: string[]; plain: string; keyConcepts: Array<{ term: string; explanation: string }>; misconceptions: string[]; practice: string[]; recall: string[]; mastery: string[] };
+type SearchEntry = { id: string; title: string; sections: Array<{ kind: string; text: string }> };
 
 type CoursePage = (typeof course.pages)[number];
 
 export default function OfficialCourseReader() {
   const [activeId, setActiveId] = useState(course.pages[0].id);
   const [query, setQuery] = useState('');
+  const [localRecordSearch, setLocalRecordSearch] = useState<Record<string, string>>({});
+  const [searchIndexData, setSearchIndexData] = useState<SearchEntry[]>([]);
+  const [learningGuideData, setLearningGuideData] = useState<Record<string, LearningGuide>>({});
+  const [quizData, setQuizData] = useState<Record<string, OfficialQuizData>>({});
+  const [activeSearchHit, setActiveSearchHit] = useState<{ kind: string; snippet: string } | null>(null);
   const [mode, setMode] = useState<'read' | 'source'>('read');
   const [completed, setCompleted] = useState<string[]>([]);
   const [contentState, setContentState] = useState<
@@ -44,10 +53,35 @@ export default function OfficialCourseReader() {
     };
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([
+      fetch('/search-index.json').then((response) => response.json()),
+      fetch('/learning-guides.json').then((response) => response.json()),
+      fetch('/official-quizzes.json').then((response) => response.json()),
+    ]).then(([search, guides, quizzes]) => {
+      if (!cancelled) { setSearchIndexData(search); setLearningGuideData(guides); setQuizData(quizzes); }
+    }).catch(() => { if (!cancelled) { setSearchIndexData([]); setLearningGuideData({}); setQuizData({}); } });
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    const loadRecords = () => {
+      try {
+        const value = JSON.parse(localStorage.getItem('official-agent-course-learning-records-v1') || '{"pages":{}}');
+        const searchable = Object.fromEntries(Object.entries(value.pages || {}).map(([id, record]) => [id, Object.values(record as Record<string, unknown>).join('\n')]));
+        setLocalRecordSearch(searchable);
+      } catch { setLocalRecordSearch({}); }
+    };
+    const timer = window.setTimeout(loadRecords, 0);
+    window.addEventListener('agent-course-progress-changed', loadRecords);
+    return () => { window.clearTimeout(timer); window.removeEventListener('agent-course-progress-changed', loadRecords); };
+  }, []);
+
   const page = course.pages.find((item) => item.id === activeId) || course.pages[0];
   const pageIndex = course.pages.findIndex((item) => item.id === page.id);
-  const guide = (learningGuides as Record<string, LearningGuide>)[page.id];
-  const quiz = (generatedQuizzes as Record<string, OfficialQuizData>)[page.id];
+  const guide = learningGuideData[page.id];
+  const quiz = quizData[page.id];
   const reviewPage = course.pages[Math.max(0, pageIndex - 1)];
 
   useEffect(() => {
@@ -66,18 +100,35 @@ export default function OfficialCourseReader() {
     document.title = `${page.title} · Agent 伴读`;
   }, [page.title]);
 
-  const filteredGroups = useMemo(() => {
+  const searchMatches = useMemo(() => {
     const needle = query.trim().toLowerCase();
+    if (!needle) return [];
+    return searchIndexData.flatMap((entry) => {
+      const sections = [...entry.sections, ...(localRecordSearch[entry.id] ? [{ kind: '我的本地记录', text: localRecordSearch[entry.id] }] : [])];
+      const matched = sections.find((section) => section.text.toLowerCase().includes(needle));
+      if (!matched) return [];
+      const clean = matched.text.replace(/<[^>]+>/g, ' ').replace(/[#*_`\[\]{}]/g, ' ').replace(/\s+/g, ' ').trim();
+      const index = clean.toLowerCase().indexOf(needle);
+      const start = Math.max(0, index - 55);
+      const end = Math.min(clean.length, index + needle.length + 95);
+      return [{ id: entry.id, title: entry.title, kind: matched.kind, snippet: `${start > 0 ? '…' : ''}${clean.slice(start, end)}${end < clean.length ? '…' : ''}` }];
+    }).slice(0, 30);
+  }, [localRecordSearch, query, searchIndexData]);
+
+  const filteredGroups = useMemo(() => {
+    const needle = query.trim();
+    const matchedIds = new Set(searchMatches.map((match) => match.id));
     return course.groups.map((group) => ({
       ...group,
       pages: group.pageIds
         .map((id) => course.pages.find((item) => item.id === id)!)
-        .filter((item) => !needle || `${item.title} ${item.group} ${item.sourcePath}`.toLowerCase().includes(needle)),
+        .filter((item) => !needle || matchedIds.has(item.id)),
     })).filter((group) => group.pages.length > 0);
-  }, [query]);
+  }, [query, searchMatches]);
 
-  function selectPage(next: CoursePage) {
+  function selectPage(next: CoursePage, hit: { kind: string; snippet: string } | null = null) {
     setActiveId(next.id);
+    setActiveSearchHit(hit);
     setMode('read');
     const base = window.location.pathname === '/official' ? '/official' : '/';
     window.history.pushState(null, '', `${base}#${next.id}`);
@@ -90,6 +141,7 @@ export default function OfficialCourseReader() {
       : [...completed, page.id];
     setCompleted(next);
     localStorage.setItem('official-agent-course-progress', JSON.stringify(next));
+    window.dispatchEvent(new Event('agent-course-progress-changed'));
   }
 
   return (
@@ -104,9 +156,11 @@ export default function OfficialCourseReader() {
         </div>
 
         <label className="official-search">
-          <span>搜索 75 页课程</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="例如：工具、RAG、LangGraph" />
+          <span>全文搜索 75 页与本地学习资料</span>
+          <input value={query} onChange={(event) => { setQuery(event.target.value); setActiveSearchHit(null); }} placeholder="正文、代码、批注、测验、实验、笔记" />
         </label>
+
+        {query.trim() && <div className="search-hits"><header><strong>{searchMatches.length} 个匹配页面</strong><span>显示前 30 项</span></header>{searchMatches.slice(0, 10).map((hit) => <button type="button" key={`${hit.id}-${hit.kind}`} onClick={() => selectPage(course.pages.find((item) => item.id === hit.id)!, { kind: hit.kind, snippet: hit.snippet })}><span>{hit.kind}</span><strong>{hit.title}</strong><p>{hit.snippet}</p></button>)}{searchMatches.length === 0 && <p className="no-hits">没有找到匹配内容。</p>}</div>}
 
         <nav className="official-toc" aria-label="官方课程完整目录">
           {filteredGroups.map((group) => (
@@ -157,10 +211,15 @@ export default function OfficialCourseReader() {
             <p>下面的“格式化阅读”来自项目内保存的官方 MDX，只调整显示方式；切换“原始 MDX”可以逐字符核对。Hinata 的解释单独放在批注卡中，不会替换官方正文。</p>
           </aside>
 
+          {activeSearchHit && <aside className="active-search-hit"><span>搜索命中 · {activeSearchHit.kind}</span><p>{activeSearchHit.snippet}</p></aside>}
+
           <div className="reading-toolbar" role="tablist" aria-label="正文显示模式">
             <button className={mode === 'read' ? 'active' : ''} onClick={() => setMode('read')} role="tab" aria-selected={mode === 'read'}>格式化阅读</button>
             <button className={mode === 'source' ? 'active' : ''} onClick={() => setMode('source')} role="tab" aria-selected={mode === 'source'}>原始 MDX</button>
           </div>
+
+          {mode === 'read' && <PageLearningTools pageId={page.id} pageTitle={page.title} pages={course.pages.map((item) => ({ id: item.id, title: item.title }))} onNavigate={(id) => selectPage(course.pages.find((item) => item.id === id)!)} />}
+          {mode === 'read' && <LearningSupport pageId={page.id} pageTitle={page.title} titles={Object.fromEntries(course.pages.map((item) => [item.id, item.title]))} onNavigate={(id) => selectPage(course.pages.find((item) => item.id === id)!)} />}
 
           {guide && mode === 'read' && (
             <section className="learning-guide" aria-labelledby="learning-guide-title">
@@ -207,11 +266,13 @@ export default function OfficialCourseReader() {
             />
           ) : (
             <div className="official-markdown">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{contentState.readable}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={{ pre: LearningCodeBlock, img: LearningImage, iframe: LearningIframe }}>{rewriteCourseLinks(contentState.readable, page.id)}</ReactMarkdown>
             </div>
           ) : (
             <pre className="official-source-code"><code>{contentState.raw}</code></pre>
           )}
+
+          {page.id === 'unit1/conclusion' && mode === 'read' && <Unit1Mastery completedPageIds={completed} />}
 
           <section className="official-complete">
             <div><span>本地学习进度</span><strong>{completed.length}/{course.pageCount} 页完成</strong><p>完成状态只保存在当前浏览器，不会修改官方原文。</p></div>
@@ -248,9 +309,26 @@ function OfficialQuizReading({ readable, pageId, quiz, reviewLabel, onReview }: 
 
   return (
     <>
-      <div className="official-markdown quiz-fragment"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{intro}</ReactMarkdown></div>
+      <div className="official-markdown quiz-fragment"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={{ pre: LearningCodeBlock, img: LearningImage, iframe: LearningIframe }}>{rewriteCourseLinks(intro, pageId)}</ReactMarkdown></div>
       <OfficialQuiz key={pageId} pageId={pageId} data={quiz} reviewLabel={reviewLabel} onReview={onReview} />
-      {outro.trim() && <div className="official-markdown quiz-fragment outro"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{outro}</ReactMarkdown></div>}
+      {outro.trim() && <div className="official-markdown quiz-fragment outro"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={{ pre: LearningCodeBlock, img: LearningImage, iframe: LearningIframe }}>{rewriteCourseLinks(outro, pageId)}</ReactMarkdown></div>}
     </>
   );
+}
+
+function rewriteCourseLinks(markdown: string, currentPageId: string) {
+  const baseParts = currentPageId.split('/').slice(0, -1);
+  return markdown.replace(/\]\((?!https?:|#|mailto:)([^)]+)\)/g, (full, href: string) => {
+    const cleanHref = href.split('#')[0].replace(/\.mdx?$/, '');
+    const parts = cleanHref.startsWith('/') ? cleanHref.split('/').filter(Boolean) : [...baseParts, ...cleanHref.split('/')];
+    const resolved: string[] = [];
+    for (const part of parts) {
+      if (part === '..') resolved.pop();
+      else if (part !== '.') resolved.push(part);
+    }
+    const id = resolved.join('/').replace(/^units\/zh-CN\//, '');
+    const aliases: Record<string, string> = { 'unit2/llama-index/02_components': 'unit2/llama-index/components', 'unit2/langgraph/quizz1': 'unit2/langgraph/quiz1' };
+    const localId = aliases[id] || id;
+    return course.pages.some((page) => page.id === localId) ? `](/#${localId})` : full;
+  });
 }

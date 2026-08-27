@@ -5,6 +5,7 @@
 1. `lab01_messages`：消息怎样变成模型读取的提示。
 2. `lab02_tools`：工具 schema、参数校验与安全执行器。
 3. `lab03_agent_loop`：把模型决策、工具行动和 Observation 串成循环。
+4. `lab04_smolagents`：用真实 smolagents 框架运行同一条循环，并区分框架、教学模型与真实 LLM。
 
 每个目录均包含：
 

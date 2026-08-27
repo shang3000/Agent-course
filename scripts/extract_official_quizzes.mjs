@@ -55,5 +55,6 @@ for (const filePath of walk(sourceRoot).filter((file) => file.endsWith('.mdx')))
 }
 
 fs.writeFileSync(outputPath, `${JSON.stringify(quizzes, null, 2)}\n`, 'utf8');
+fs.writeFileSync(path.join(root, 'learning-site', 'public', 'official-quizzes.json'), `${JSON.stringify(quizzes, null, 2)}\n`, 'utf8');
 const questionCount = Object.values(quizzes).reduce((total, quiz) => total + quiz.questions.length, 0);
 console.log(`已从官方 MDX 提取 ${Object.keys(quizzes).length} 个测验页、${questionCount} 道题：${path.relative(root, outputPath)}`);

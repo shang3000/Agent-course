@@ -7,10 +7,10 @@ const guidesPath = path.join(root, 'learning-site', 'app', 'official', 'learning
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const guides = JSON.parse(fs.readFileSync(guidesPath, 'utf8'));
 const requiredArrays = ['objectives', 'prerequisites', 'keyConcepts', 'misconceptions', 'practice', 'recall', 'mastery'];
-const unitOnePages = manifest.pages.filter((page) => page.id.startsWith('unit1/'));
+const targetPages = manifest.pages;
 const errors = [];
 
-for (const page of unitOnePages) {
+for (const page of targetPages) {
   const guide = guides[page.id];
   if (!guide) {
     errors.push(`${page.id}: 缺少学习层`);
@@ -51,4 +51,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`学习层校验通过：Unit 1 ${unitOnePages.length}/${unitOnePages.length} 页，8 类学习字段全部非空。`);
+console.log(`学习层校验通过：全课程 ${targetPages.length}/${targetPages.length} 页，8 类学习字段全部非空。`);

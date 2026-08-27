@@ -69,6 +69,7 @@ export default function OfficialQuiz({ pageId, data, onReview, reviewLabel }: { 
       const records = JSON.parse(localStorage.getItem(storageKey) || '{}') as Record<string, SavedQuiz>;
       records[pageId] = next;
       localStorage.setItem(storageKey, JSON.stringify(records));
+      window.dispatchEvent(new Event('agent-course-progress-changed'));
     } catch {
       setNotice('浏览器未允许保存进度，但仍可继续本次作答。');
     }

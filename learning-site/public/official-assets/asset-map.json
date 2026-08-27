@@ -1,0 +1,442 @@
+{
+  "generatedAt": "2026-08-27T02:13:11.134Z",
+  "cached": {},
+  "failures": [
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/blog_multi-lora-serving_LoRA.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit3/neo-npc.jpeg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit3/covert-protocol.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit3/pokemon_thumbnail.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit3/claude-plays-pokemon.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit1/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit3/mecha-break.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/smolagents-latency.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/smolagents-costs.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/trace-tree.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/first-example-trace.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit3/suck-up.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/smolagents-attributes.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/langfuse-dashboard.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/llm-as-a-judge-score.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/evaluator.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/evaluator-template.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/user-feedback-gradio.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/example-dataset.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/discord-etiquette.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/next-units.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/dataset-run-comparison.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/bonus-unit2/dataset_runs.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/tools.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/time-to-onboard.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/advice.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/recommended-pace.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/deadline.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit0/three-paths.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/hf_course_follow.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-check-3.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/code-vs-json-actions.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/share.png?download=true)下载宣传图",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/share.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/communication/please_star.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/AgentCycle.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-3.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-2.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-1.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/system_prompt_cycle.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-4.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-unit1sub5DONE.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-unit1sub4DONE.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-unit1sub3DONE.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/certificate-example.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-agent-5.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/alfred-systemprompt.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/rebel-alfred.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/polite-alfred.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/assistant.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-no-check.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/ReAct.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/smolagents.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/Agent_system_prompt_tools.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/Agent_system_prompt.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/weather.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-check-2.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/duplicate-space.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/bring-coffee.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/make-coffee.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/reason-and-plan.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/coffee-please.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/this-is-alfred.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/process.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/DecodingFinal.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/AutoregressionSchema.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/transformer.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/whiteboard-check-1.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/eiffel_brocolis.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit1/AttentionSceneFinal.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/alfred_flow.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/basic_graph.jpeg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/application.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/Building_blocks.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/Agent.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/agents.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/flow.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/LangGraph.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/mail_flow.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/LangGraph/first_graph.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/agentic-rag.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/workflows.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/tools.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/llama-hub.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/thumbnail.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/rag.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/llama-index/workflow-draw.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/alfred-menu.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/alfred-playlist.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/alfred-party.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/smolagents/codeagent_docs.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/code_vs_json_actions.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/smolagents-can-see/diagram_adding_vlms_smolagents.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/alfred-catering.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/Agent_ManimCE.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/output_map.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit2/smolagents/star_smolagents.gif",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/smolagents/license_to_call.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit4/gaia_levels.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit4/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit4/leaderboard%20GAIA%2024%3A04%3A2025.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit4/congrats.png",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit3/agentic-rag/thumbnail.jpg",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/agents-course/course-images/resolve/main/en/unit4/gaia_capabilities.png",
+      "error": "TypeError: fetch failed"
+    }
+  ]
+}

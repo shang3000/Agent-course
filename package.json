@@ -7,10 +7,17 @@
     "build": "npm --prefix learning-site run build",
     "lint": "npm --prefix learning-site run lint",
     "start": "npm --prefix learning-site run start",
-    "sync:official": "node scripts/sync_official_course.mjs && node scripts/extract_official_quizzes.mjs",
+    "sync:official": "node scripts/sync_official_course.mjs && node scripts/extract_official_quizzes.mjs && node scripts/build_search_index.mjs",
     "verify:official": "node scripts/verify_official_course.mjs",
     "verify:learning": "node scripts/verify_learning_guides.mjs",
     "verify:quizzes": "node scripts/verify_official_quizzes.mjs",
+    "verify:links": "node scripts/verify_internal_links.mjs",
+    "verify:system": "node scripts/verify_learning_system.mjs",
+    "verify:all": "npm run verify:official && npm run verify:learning && npm run verify:quizzes && npm run verify:links && npm run verify:system && npm run test:python && npm run lint && npm run build",
+    "check:updates": "node scripts/check_official_updates.mjs",
+    "cache:assets": "node scripts/cache_official_assets.mjs",
+    "index:search": "node scripts/build_search_index.mjs",
+    "guides:complete": "node scripts/generate_learning_guides.mjs && node scripts/build_search_index.mjs",
     "test:python": "python -m unittest discover -s tests -v"
   }
 }

@@ -1,0 +1,1045 @@
+{
+  "bonus_unit2/quiz": {
+    "sourcePath": "units/zh-CN/bonus_unit2/quiz.mdx",
+    "questions": [
+      {
+        "id": "bonus_unit2/quiz#1",
+        "title": "Q1: AI 智能体中的可观测性主要指的是什么？",
+        "prompt": "哪个陈述准确地描述了 AI 智能体可观测性的目的？",
+        "choices": [
+          {
+            "text": "它涉及通过日志、指标和跨度（spans）追踪内部操作，以理解智能体行为。",
+            "explanation": "正确！可观测性意味着使用日志、指标和跨度来揭示智能体的内部运作。",
+            "correct": true
+          },
+          {
+            "text": "它仅仅专注于降低运行智能体的财务成本。",
+            "explanation": "可观测性涵盖成本，但不限于此。",
+            "correct": false
+          },
+          {
+            "text": "它仅指智能体的外部外观和用户界面。",
+            "explanation": "可观测性关注的是内部流程，而不是用户界面。",
+            "correct": false
+          },
+          {
+            "text": "它只关心编码风格和代码美学。",
+            "explanation": "在此背景下，代码风格与可观测性无关。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "bonus_unit2/quiz#2",
+        "title": "Q2: 以下哪项不是智能体可观测性中常见的监控指标？",
+        "prompt": "选择通常不属于可观测性范畴的指标。",
+        "choices": [
+          {
+            "text": "延迟",
+            "explanation": "延迟通常被追踪以评估智能体的响应能力。",
+            "correct": false
+          },
+          {
+            "text": "每次智能体运行的成本",
+            "explanation": "监控成本是可观测性的一个关键方面。",
+            "correct": false
+          },
+          {
+            "text": "用户反馈和评分",
+            "explanation": "用户反馈对于评估智能体性能至关重要。",
+            "correct": false
+          },
+          {
+            "text": "智能体的代码行数",
+            "explanation": "代码行数不是典型的可观测性指标。",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "id": "bonus_unit2/quiz#3",
+        "title": "Q3: 什么最能描述 AI 智能体的离线评估？",
+        "prompt": "确定正确离线评估本质的陈述。",
+        "choices": [
+          {
+            "text": "在实时环境中使用真实用户交互来评估智能体。",
+            "explanation": "这描述的是在线评估而非离线评估。",
+            "correct": false
+          },
+          {
+            "text": "使用包含已知基准（ground truth）的精选数据集来评估智能体性能。",
+            "explanation": "正确！离线评估使用测试数据集来衡量相对于已知答案的性能。",
+            "correct": true
+          },
+          {
+            "text": "实时监控智能体的内部日志。",
+            "explanation": "这更多地与可观测性相关，而非评估。",
+            "correct": false
+          },
+          {
+            "text": "在没有任何评估指标的情况下运行智能体。",
+            "explanation": "这种方法无法提供有意义的见解。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "bonus_unit2/quiz#4",
+        "title": "Q4: 智能体的在线评估提供了什么优势？",
+        "prompt": "选择最能反映在线评估好处的陈述。",
+        "choices": [
+          {
+            "text": "它使用预定义的数据集提供受控的测试场景。",
+            "explanation": "受控测试是离线评估的好处，而非在线评估。",
+            "correct": false
+          },
+          {
+            "text": "它捕获实时的用户交互和真实世界的性能数据。",
+            "explanation": "正确！在线评估通过在实时环境中监控智能体来提供见解。",
+            "correct": true
+          },
+          {
+            "text": "它消除了任何离线测试和基准测试的需要。",
+            "explanation": "离线和在线评估都很重要且互为补充。",
+            "correct": false
+          },
+          {
+            "text": "它仅仅专注于降低智能体的计算成本。",
+            "explanation": "成本监控是可观测性的一部分，并非在线评估的主要优势。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "bonus_unit2/quiz#5",
+        "title": "Q5: OpenTelemetry 在 AI 智能体可观测性和评估中扮演什么角色？",
+        "prompt": "哪个陈述最能描述 OpenTelemetry 在监控 AI 智能体中的作用？",
+        "choices": [
+          {
+            "text": "它提供了一个标准化的框架来检测代码，从而能够收集用于可观测性的追踪、指标和日志。",
+            "explanation": "正确！OpenTelemetry 标准化了遥测数据的检测，这对于监控和诊断智能体行为至关重要。",
+            "correct": true
+          },
+          {
+            "text": "它通过自动修复代码问题来替代手动调试。",
+            "explanation": "错误。OpenTelemetry 用于收集遥测数据，而不是调试代码问题。",
+            "correct": false
+          },
+          {
+            "text": "它主要用作存储历史日志的数据库，不具备实时能力。",
+            "explanation": "错误。OpenTelemetry 专注于实时遥测数据收集并将数据导出到分析工具。",
+            "correct": false
+          },
+          {
+            "text": "它通过自动调整模型参数来优化 AI 智能体的计算性能。",
+            "explanation": "错误。OpenTelemetry 关注的是可观测性而非性能调优。",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "unit1/quiz1": {
+    "sourcePath": "units/zh-CN/unit1/quiz1.mdx",
+    "questions": [
+      {
+        "id": "unit1/quiz1#1",
+        "title": "问题1：什么是智能体？",
+        "prompt": "以下哪项最能描述AI智能体？",
+        "choices": [
+          {
+            "text": "仅处理静态文本且永不与环境交互的系统",
+            "explanation": "智能体必须具备执行行动并与环境交互的能力",
+            "correct": false
+          },
+          {
+            "text": "能够推理、规划并使用工具与环境交互以实现特定目标的人工智能模型",
+            "explanation": "该定义完整涵盖了智能体的本质特征",
+            "correct": true
+          },
+          {
+            "text": "仅回答问题但无行动能力的聊天机器人",
+            "explanation": "此类聊天机器人缺乏执行行动的能力，因此不同于智能体",
+            "correct": false
+          },
+          {
+            "text": "提供信息但无法执行任务的数字百科全书",
+            "explanation": "智能体需主动与环境交互，而非仅提供静态信息",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz1#2",
+        "title": "问题2：规划在智能体中的作用是什么？",
+        "prompt": "为什么智能体在执行行动前需要进行规划？",
+        "choices": [
+          {
+            "text": "用于记忆过往交互记录",
+            "explanation": "规划关注的是确定未来行动，而非存储历史交互",
+            "correct": false
+          },
+          {
+            "text": "确定行动序列并选择满足用户请求的适用工具",
+            "explanation": "规划帮助智能体确定完成任务的最佳步骤及工具组合",
+            "correct": true
+          },
+          {
+            "text": "生成无目的性的随机行动",
+            "explanation": "规划确保智能体行动具有目的性，避免随机性",
+            "correct": false
+          },
+          {
+            "text": "执行无需额外推理的文本翻译",
+            "explanation": "规划涉及构建行动框架，而非简单的文本转换",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz1#3",
+        "title": "问题3：工具如何增强智能体的能力？",
+        "prompt": "为什么工具对智能体至关重要？",
+        "choices": [
+          {
+            "text": "工具是冗余组件，不会影响智能体性能",
+            "explanation": "工具通过支持超越文本生成的操作来扩展智能体能力",
+            "correct": false
+          },
+          {
+            "text": "工具赋予智能体执行文本生成模型原生无法实现操作的能力，例如冲咖啡或生成图像",
+            "explanation": "工具使智能体能够与现实世界交互并完成任务",
+            "correct": true
+          },
+          {
+            "text": "工具仅用于存储记忆",
+            "explanation": "工具主要用于执行操作，而非单纯存储数据",
+            "correct": false
+          },
+          {
+            "text": "工具将智能体限制为仅能进行文本响应",
+            "explanation": "相反，工具可帮助智能体突破纯文本响应的限制",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz1#4",
+        "title": "问题4：行动与工具有何区别？",
+        "prompt": "行动和工具之间的关键差异是什么？",
+        "choices": [
+          {
+            "text": "行动是智能体采取的步骤，工具是智能体用于执行这些行动的外部资源",
+            "explanation": "行动是高层级目标，工具是智能体可调用的具体功能",
+            "correct": true
+          },
+          {
+            "text": "行动和工具是同一概念且可互换使用",
+            "explanation": "行动是目标或任务，工具是智能体用于实现它们的具体工具",
+            "correct": false
+          },
+          {
+            "text": "工具是通用性的，而行动仅用于物理交互",
+            "explanation": "行动可同时包含数字和物理任务",
+            "correct": false
+          },
+          {
+            "text": "行动需要大语言模型（LLMs）而工具不需要",
+            "explanation": "虽然 LLMs 帮助决定行动，但行动本身并不依赖 LLMs",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz1#5",
+        "title": "问题5：大语言模型（LLMs）在智能体中扮演什么角色？",
+        "prompt": "LLMs 如何支持智能体的功能实现？",
+        "choices": [
+          {
+            "text": "作为静态数据库仅存储信息而不处理输入的大语言模型",
+            "explanation": "大语言模型需主动处理文本输入并生成响应，而非仅作信息存储",
+            "correct": false
+          },
+          {
+            "text": "作为智能体推理'大脑'，通过处理文本输入理解指令并规划行动",
+            "explanation": "大语言模型赋予智能体解释需求、制定计划并决策后续步骤的能力",
+            "correct": true
+          },
+          {
+            "text": "仅用于图像处理而非文本处理的大语言模型",
+            "explanation": "大语言模型主要处理文本，但也可支持多模态输入交互",
+            "correct": false
+          },
+          {
+            "text": "未被使用的大语言模型",
+            "explanation": "大语言模型是现代 AI 智能体的核心组件",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz1#6",
+        "title": "问题6：以下哪个例子最能体现 AI 智能体？",
+        "prompt": "哪个现实场景最能展示工作中的 AI 智能体？",
+        "choices": [
+          {
+            "text": "网站上的静态常见问题页面",
+            "explanation": "静态 FAQ 页面无法动态与用户交互或执行操作",
+            "correct": false
+          },
+          {
+            "text": "类似 Siri 或 Alexa 的虚拟助手，能够理解语音指令、进行推理并执行设置提醒或发送消息等任务",
+            "explanation": "该示例包含推理、规划及与环境交互的完整智能体特征",
+            "correct": true
+          },
+          {
+            "text": "仅执行算术运算的基础计算器",
+            "explanation": "计算器遵循固定规则，缺乏推理和规划能力，因此不属于智能体",
+            "correct": false
+          },
+          {
+            "text": "遵循预设响应模式的游戏 NPC 角色",
+            "explanation": "除非 NPC 具备推理、规划和工具使用能力，否则不能视为AI智能体",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "unit1/quiz2": {
+    "sourcePath": "units/zh-CN/unit1/quiz2.mdx",
+    "questions": [
+      {
+        "id": "unit1/quiz2#1",
+        "title": "问题1：以下哪项最能描述 AI 工具？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "仅生成文本响应的流程",
+            "explanation": "",
+            "correct": false
+          },
+          {
+            "text": "允许智能体执行特定任务并与外部环境交互的可执行流程或外部 API",
+            "explanation": "工具是可执行函数，智能体可用其执行特定任务并与外部环境交互",
+            "correct": true
+          },
+          {
+            "text": "存储智能体对话的功能",
+            "explanation": "",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz2#2",
+        "title": "问题2： AI 智能体如何将工具作为\"行动\"在环境中使用？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "通过被动等待用户指令",
+            "explanation": "",
+            "correct": false
+          },
+          {
+            "text": "仅使用预编程响应",
+            "explanation": "",
+            "correct": false
+          },
+          {
+            "text": "在适当时要求 LLM 生成工具调用代码并代表模型运行工具",
+            "explanation": "智能体可调用工具，并根据获得的信息进行规划与重新规划",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz2#3",
+        "title": "问题3：什么是大语言模型（LLM）？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "使用预定义答案进行回复的简单聊天机器人",
+            "explanation": "",
+            "correct": false
+          },
+          {
+            "text": "通过大量文本训练的深度学习模型，能理解并生成类人语言",
+            "explanation": "",
+            "correct": true
+          },
+          {
+            "text": "遵循严格预定义命令的基于规则 AI",
+            "explanation": "",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz2#4",
+        "title": "问题4：以下哪项最能描述特殊标记（special tokens）在 LLMs 中的作用？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "存储在模型词汇表中用于提升文本生成质量的附加词汇",
+            "explanation": "",
+            "correct": false
+          },
+          {
+            "text": "用于实现特定功能，例如标记序列结束（EOS）或区分聊天模型中的不同消息角色",
+            "explanation": "",
+            "correct": true
+          },
+          {
+            "text": "随机插入用于提高响应多样性的标记",
+            "explanation": "",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit1/quiz2#5",
+        "title": "问题5： AI 聊天模型如何处理用户消息的内部流程？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "直接将消息作为结构化命令解析且不做转换",
+            "explanation": "",
+            "correct": false
+          },
+          {
+            "text": "通过将系统消息、用户消息和助手消息拼接成格式化提示",
+            "explanation": "",
+            "correct": true
+          },
+          {
+            "text": "根据历史对话随机生成响应",
+            "explanation": "",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "unit2/langgraph/quiz1": {
+    "sourcePath": "units/zh-CN/unit2/langgraph/quiz1.mdx",
+    "questions": [
+      {
+        "id": "unit2/langgraph/quiz1#1",
+        "title": "Q1: LangGraph 的主要目的是什么？",
+        "prompt": "哪个描述最能体现 LangGraph 的设计目标？",
+        "choices": [
+          {
+            "text": "构建包含 LLM 应用的流程控制的框架",
+            "explanation": "正确！LangGraph 专门设计用于帮助构建和管理使用 LLM 应用的流程控制。",
+            "correct": true
+          },
+          {
+            "text": "提供与不同 LLM 模型交互接口的库",
+            "explanation": "这更符合 LangChain 的定位，它提供了模型交互的标准接口。LangGraph 专注于流程控制。",
+            "correct": false
+          },
+          {
+            "text": "用于工具调用的 Agent 库",
+            "explanation": "虽然 LangGraph 可以与 agent 配合使用，但其主要目的是『流程编排』。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/langgraph/quiz1#2",
+        "title": "Q2: 在\"控制 vs 自由\"的权衡中，LangGraph 的定位是什么？",
+        "prompt": "哪个陈述最能体现 LangGraph 在 agent 设计中的方法？",
+        "choices": [
+          {
+            "text": "LangGraph 最大化自由，允许 LLM 完全自主决策",
+            "explanation": "实际上 LangGraph 更注重控制而非自由，它为 LLM 工作流提供结构化的框架。",
+            "correct": false
+          },
+          {
+            "text": "LangGraph 在保持对执行流程强控制的同时，仍利用 LLM 能力进行决策",
+            "explanation": "正确！当你需要对 agent 执行流程进行控制时，LangGraph 通过结构化工作流提供可预测的行为。",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "id": "unit2/langgraph/quiz1#3",
+        "title": "Q3: State 在 LangGraph 中扮演什么角色？",
+        "prompt": "选择对 LangGraph 中 State 最准确的描述。",
+        "choices": [
+          {
+            "text": "State 是 LLM 的最新生成结果",
+            "explanation": "State 是用户自定义的类，其字段由用户定义，值可以由 LLM 填充",
+            "correct": false
+          },
+          {
+            "text": "State 仅用于追踪执行期间的错误",
+            "explanation": "State 的作用远不止错误追踪，不过该功能确实有用。",
+            "correct": false
+          },
+          {
+            "text": "State 代表在 agent 应用中流转的信息",
+            "explanation": "正确！State 是 LangGraph 的核心，包含步骤间决策所需的所有信息。你可以定义需要计算的字段，节点可以通过修改这些值来决定流程分支。",
+            "correct": true
+          },
+          {
+            "text": "State 仅在与外部 API 交互时相关",
+            "explanation": "State 是所有 LangGraph 应用的基础，不局限于外部 API 的使用场景。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/langgraph/quiz1#4",
+        "title": "Q4: LangGraph 中的条件边（Conditional Edge）是什么？",
+        "prompt": "选择最准确的描述。",
+        "choices": [
+          {
+            "text": "根据条件评估决定后续执行节点的边",
+            "explanation": "正确！条件边允许你的图谱基于当前状态做出动态路由决策，实现工作流中的分支逻辑。",
+            "correct": true
+          },
+          {
+            "text": "仅在特定条件发生时才会跟随的边",
+            "explanation": "条件边是根据应用输出控制流程的，而不是基于输入。",
+            "correct": false
+          },
+          {
+            "text": "需要用户确认才能继续的边",
+            "explanation": "条件边基于程序设定的条件，不需要用户交互确认。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/langgraph/quiz1#5",
+        "title": "Q5: LangGraph 如何帮助解决 LLM 的幻觉问题？",
+        "prompt": "选择最佳答案。",
+        "choices": [
+          {
+            "text": "通过限制 LLM 响应完全消除幻觉",
+            "explanation": "没有任何框架能完全消除 LLM 的幻觉问题，LangGraph 也不例外。",
+            "correct": false
+          },
+          {
+            "text": "提供可验证和校验 LLM 输出的结构化工作流",
+            "explanation": "正确！通过包含验证步骤、校验节点和错误处理路径的结构化工作流，LangGraph 有助于减少幻觉的影响。",
+            "correct": true
+          },
+          {
+            "text": "对幻觉问题没有影响",
+            "explanation": "LangGraph 的结构化方法能有效缓解幻觉问题，但会牺牲一定的响应速度。",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "unit2/llama-index/quiz1": {
+    "sourcePath": "units/zh-CN/unit2/llama-index/quiz1.mdx",
+    "questions": [
+      {
+        "id": "unit2/llama-index/quiz1#1",
+        "title": "Q1: 什么是 QueryEngine？",
+        "prompt": "以下哪项最能描述 QueryEngine 组件？",
+        "choices": [
+          {
+            "text": "仅处理静态文本且不具备检索能力的系统",
+            "explanation": "QueryEngine 必须能够检索和处理相关信息",
+            "correct": false
+          },
+          {
+            "text": "在 RAG 过程中负责查找和检索相关信息组件",
+            "explanation": "这准确描述了 QueryEngine 的核心功能",
+            "correct": true
+          },
+          {
+            "text": "仅存储向量嵌入而不具备搜索功能的工具",
+            "explanation": "QueryEngine 的功能不仅限于存储嵌入 - 它需要主动搜索和检索信息",
+            "correct": false
+          },
+          {
+            "text": "仅用于评估响应质量的组件",
+            "explanation": "质量评估不属于 QueryEngine 的主要检索功能",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/llama-index/quiz1#2",
+        "title": "Q2: FunctionTools 的作用是什么？",
+        "prompt": "为什么 FunctionTools 对 Agent 很重要？",
+        "choices": [
+          {
+            "text": "用于处理大量数据存储",
+            "explanation": "FunctionTools 的主要目的不是数据存储",
+            "correct": false
+          },
+          {
+            "text": "将 Python 函数转换为 Agent 可使用的工具",
+            "explanation": "FunctionTools 通过封装 Python 函数使其可供 Agent 使用",
+            "correct": true
+          },
+          {
+            "text": "允许 Agent 创建随机函数定义",
+            "explanation": "FunctionTools 有明确的功能封装目的，而非创建随机函数",
+            "correct": false
+          },
+          {
+            "text": "仅处理文本数据",
+            "explanation": "FunctionTools 可以处理各种类型的函数，不限于文本处理",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/llama-index/quiz1#3",
+        "title": "Q3: LlamaIndex 中的 Toolspecs 是什么？",
+        "prompt": "Toolspecs 的主要目的是什么？",
+        "choices": [
+          {
+            "text": "它们是冗余的组件，不提供实际功能",
+            "explanation": "Toolspecs 在 LlamaIndex 生态中具有重要作用",
+            "correct": false
+          },
+          {
+            "text": "社区创建的工具集合，用于扩展 Agent 能力",
+            "explanation": "Toolspecs 允许社区共享和复用工具",
+            "correct": true
+          },
+          {
+            "text": "专门用于内存管理",
+            "explanation": "Toolspecs 的核心是提供工具，而非内存管理",
+            "correct": false
+          },
+          {
+            "text": "仅支持文本处理",
+            "explanation": "Toolspecs 可以包含多种类型的工具，不限于文本处理",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/llama-index/quiz1#4",
+        "title": "Q4: 创建工具时需要什么？",
+        "prompt": "创建工具时必须包含哪些信息？",
+        "choices": [
+          {
+            "text": "必须定义函数、名称和描述",
+            "explanation": "虽然这些构成完整工具，但名称和描述可从函数和文档字符串解析",
+            "correct": false
+          },
+          {
+            "text": "仅需名称",
+            "explanation": "仍需函数和描述/文档字符串来确保工具文档完整性",
+            "correct": false
+          },
+          {
+            "text": "仅需描述",
+            "explanation": "必须包含函数才能使智能体执行具体操作",
+            "correct": false
+          },
+          {
+            "text": "仅需函数",
+            "explanation": "名称和描述默认取自所提供函数的名称和文档字符串",
+            "correct": true
+          }
+        ]
+      }
+    ]
+  },
+  "unit2/llama-index/quiz2": {
+    "sourcePath": "units/zh-CN/unit2/llama-index/quiz2.mdx",
+    "questions": [
+      {
+        "id": "unit2/llama-index/quiz2#1",
+        "title": "Q1: AgentWorkflow 在 LlamaIndex 中的主要作用是什么？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "运行一个或多个带有工具的智能体",
+            "explanation": "正确，AgentWorkflow 是快速创建包含一个或多个智能体的系统的主要方式。",
+            "correct": true
+          },
+          {
+            "text": "创建没有记忆功能的单一数据查询智能体",
+            "explanation": "错误，AgentWorkflow 的功能远不止于此，QueryEngine 才是用于简单数据查询的组件。",
+            "correct": false
+          },
+          {
+            "text": "自动为智能体构建工具",
+            "explanation": "AgentWorkflow 不负责构建工具，这是开发者的职责。",
+            "correct": false
+          },
+          {
+            "text": "管理智能体记忆和状态",
+            "explanation": "管理记忆和状态并非 AgentWorkflow 的主要功能。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/llama-index/quiz2#2",
+        "title": "Q2: 哪个对象用于跟踪工作流的状态？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "State",
+            "explanation": "State 不是用于管理工作流状态的正确对象。",
+            "correct": false
+          },
+          {
+            "text": "Context",
+            "explanation": "Context 是用于跟踪工作流状态的正确对象。",
+            "correct": true
+          },
+          {
+            "text": "WorkflowState",
+            "explanation": "WorkflowState 不是正确对象。",
+            "correct": false
+          },
+          {
+            "text": "Management",
+            "explanation": "Management 不是有效的工作流状态管理对象。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/llama-index/quiz2#3",
+        "title": "Q3: 如果希望智能体记住之前的交互，应该使用哪个方法？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "run(query_str)",
+            "explanation": ".run(query_str) 不会维护对话历史记录。",
+            "correct": false
+          },
+          {
+            "text": "chat(query_str, ctx=ctx)",
+            "explanation": "chat() 不是工作流的有效方法。",
+            "correct": false
+          },
+          {
+            "text": "interact(query_str)",
+            "explanation": "interact() 不是智能体交互的有效方法。",
+            "correct": false
+          },
+          {
+            "text": "run(query_str, ctx=ctx)",
+            "explanation": "通过传入并维护上下文，我们可以保持状态！",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "id": "unit2/llama-index/quiz2#4",
+        "title": "Q4: Agentic RAG 的关键特性是什么？",
+        "prompt": "",
+        "choices": [
+          {
+            "text": "只能使用基于文档的工具在 RAG 工作流中回答问题",
+            "explanation": "Agentic RAG 可以使用不同的工具，包括基于文档的工具。",
+            "correct": false
+          },
+          {
+            "text": "像聊天机器人一样无需工具自动回答问题",
+            "explanation": "Agentic RAG 确实使用工具来回答问题。",
+            "correct": false
+          },
+          {
+            "text": "可以决定使用任何工具（包括 RAG 工具）来回答问题",
+            "explanation": "Agentic RAG 具有使用不同工具回答问题的灵活性。",
+            "correct": true
+          },
+          {
+            "text": "仅适用于函数调用智能体",
+            "explanation": "Agentic RAG 不局限于函数调用智能体。",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "unit2/smolagents/quiz1": {
+    "sourcePath": "units/zh-CN/unit2/smolagents/quiz1.mdx",
+    "questions": [
+      {
+        "id": "unit2/smolagents/quiz1#1",
+        "title": "Q1: 选择 `smolagents` 而非其他框架的主要优势之一是什么？",
+        "prompt": "哪个陈述最能体现 `smolagents` 方法的核心优势？",
+        "choices": [
+          {
+            "text": "它使用高度专业化的配置文件和陡峭的学习曲线，确保只有专业开发人员能够使用它",
+            "explanation": "smolagents 设计注重简单性和最小代码复杂性，而不是陡峭的学习曲线。",
+            "correct": false
+          },
+          {
+            "text": "它支持代码优先方法，具有最少的抽象，让智能体通过 Python 函数调用直接交互",
+            "explanation": "是的，smolagents 强调直接、以代码为中心的设计，具有最小的抽象。",
+            "correct": true
+          },
+          {
+            "text": "它专注于基于 JSON 的操作，消除了智能体编写任何代码的需求",
+            "explanation": "虽然 smolagents 支持基于 JSON 的工具调用（ToolCallingAgents），但该库强调基于代码的方法，如 CodeAgents。",
+            "correct": false
+          },
+          {
+            "text": "它与单一 LLM 提供商和专用硬件深度集成",
+            "explanation": "smolagents 支持多种模型提供商，并且不需要专用硬件。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz1#2",
+        "title": "Q2: 在哪种情况下，你可能最能从使用 smolagents 中受益？",
+        "prompt": "哪种情况最符合 smolagents 的优势？",
+        "choices": [
+          {
+            "text": "构建大型企业系统，需要数十个微服务和实时数据管道",
+            "explanation": "虽然可能，但 smolagents 更专注于轻量级、以代码为中心的实验，而不是重型企业基础设施。",
+            "correct": false
+          },
+          {
+            "text": "快速原型设计或实验智能体逻辑，特别是当你的应用相对简单直接时",
+            "explanation": "是的。smolagents 设计用于简单灵活的智能体创建，无需大量设置开销。",
+            "correct": true
+          },
+          {
+            "text": "需要一个只支持基于云的 LLM 并禁止本地推理的框架",
+            "explanation": "smolagents 提供与本地或托管模型的灵活集成，不仅限于基于云的 LLM。",
+            "correct": false
+          },
+          {
+            "text": "需要高级编排、多模态感知和开箱即用的企业级功能的场景",
+            "explanation": "虽然你可以集成高级功能，但 smolagents 本身在核心上是轻量级和简约的。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz1#3",
+        "title": "Q3: smolagents 在模型集成方面提供了灵活性。哪个陈述最能反映其方法？",
+        "prompt": "选择最准确描述 smolagents 如何与 LLM 互操作的说明。",
+        "choices": [
+          {
+            "text": "它只提供一个内置模型，不允许自定义集成",
+            "explanation": "smolagents 支持多种不同的后端和用户定义的模型。",
+            "correct": false
+          },
+          {
+            "text": "它可以与广泛的 LLM 一起使用，提供预定义的类如 TransformersModel、InferenceClientModel 和 LiteLLMModel",
+            "explanation": "这是正确的。smolagents 通过各种类支持灵活的模型集成。",
+            "correct": true
+          },
+          {
+            "text": "它要求你为每次 LLM 使用实现自己的模型连接器",
+            "explanation": "有多种预构建的连接器使 LLM 集成变得简单直接。",
+            "correct": false
+          },
+          {
+            "text": "它只与开源 LLM 集成，不支持商业 API",
+            "explanation": "smolagents 可以与开源和商业模型 API 集成。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz1#4",
+        "title": "Q4: smolagents 如何处理基于代码的操作和基于 JSON 的操作之间的争论？",
+        "prompt": "哪个陈述正确地描述了 smolagents 关于操作格式的理念？",
+        "choices": [
+          {
+            "text": "它只允许所有智能体任务使用基于 JSON 的操作，需要解析器来提取工具调用",
+            "explanation": "ToolCallingAgent 使用基于 JSON 的调用，但 smolagents 也提供主要的 CodeAgent 选项，可以编写 Python 代码。",
+            "correct": false
+          },
+          {
+            "text": "它通过 CodeAgent 专注于基于代码的操作，但也通过 ToolCallingAgent 支持基于 JSON 的工具调用",
+            "explanation": "是的，smolagents 主要推荐基于代码的操作，但也为喜欢或需要它的用户提供了基于 JSON 的替代方案。",
+            "correct": true
+          },
+          {
+            "text": "它禁止任何外部函数调用，而是要求所有逻辑完全存在于 LLM 内部",
+            "explanation": "smolagents 专门设计用于授予 LLM 调用外部工具或代码的能力。",
+            "correct": false
+          },
+          {
+            "text": "它要求用户在运行智能体之前手动将每个代码片段转换为 JSON 对象",
+            "explanation": "smolagents 可以在 CodeAgent 路径中自动管理代码片段创建，无需手动 JSON 转换。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz1#5",
+        "title": "Q5: smolagents 如何与 Hugging Face Hub 集成以获得额外优势？",
+        "prompt": "哪个陈述准确描述了 Hub 集成的核心优势之一？",
+        "choices": [
+          {
+            "text": "它自动将所有公共模型升级到商业许可层级",
+            "explanation": "Hub 集成不会改变模型或工具的许可层级。",
+            "correct": false
+          },
+          {
+            "text": "它允许你推送和共享智能体或工具，使其他开发者易于发现和重用",
+            "explanation": "smolagents 支持将智能体和工具上传到 HF Hub 供他人重用。",
+            "correct": true
+          },
+          {
+            "text": "它完全禁用本地推理，只强制使用远程模型",
+            "explanation": "如果用户愿意，仍然可以进行本地推理；推送到 Hub 不会覆盖本地使用。",
+            "correct": false
+          },
+          {
+            "text": "它永久存储所有基于代码的智能体，防止任何更新或版本控制",
+            "explanation": "Hub 仓库支持更新和版本控制，因此你可以随时修改基于代码的智能体。",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  "unit2/smolagents/quiz2": {
+    "sourcePath": "units/zh-CN/unit2/smolagents/quiz2.mdx",
+    "questions": [
+      {
+        "id": "unit2/smolagents/quiz2#1",
+        "title": "Q1: 使用 `@tool` 装饰器创建工具与创建 `Tool` 的子类之间的主要区别是什么？",
+        "prompt": "以下哪个陈述最能描述这两种定义工具方法的区别？",
+        "choices": [
+          {
+            "text": "使用 <code>@tool</code> 装饰器是检索类工具的强制要求，而 <code>Tool</code> 的子类仅用于文本生成任务",
+            "explanation": "两种方法都适用于任何类型的工具，包括检索类和文本生成类工具。",
+            "correct": false
+          },
+          {
+            "text": "推荐使用 <code>@tool</code> 装饰器创建简单的基于函数的工具，而 <code>Tool</code> 的子类能为复杂功能或自定义元数据提供更大灵活性",
+            "explanation": "正确。装饰器方法更简单，但子类化允许更定制化的行为。",
+            "correct": true
+          },
+          {
+            "text": "<code>@tool</code> 只能用于多智能体系统，而创建 <code>Tool</code> 的子类适用于单智能体场景",
+            "explanation": "所有智能体（单或多）都可以使用这两种方法定义工具，没有此类限制。",
+            "correct": false
+          },
+          {
+            "text": "用 <code>@tool</code> 装饰函数可以替代文档字符串，而子类工具必须不包含文档字符串",
+            "explanation": "两种方法都需要清晰的文档字符串。装饰器不会替代它们，子类仍然可以包含文档字符串。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz2#2",
+        "title": "Q2: CodeAgent 如何使用 ReAct（推理+行动）方法处理多步骤任务？",
+        "prompt": "哪个陈述正确描述了 CodeAgent 执行系列步骤来解决任务的方式？",
+        "choices": [
+          {
+            "text": "它将每个步骤传递给多智能体系统中的不同智能体，然后合并结果",
+            "explanation": "尽管多智能体系统可以分配任务，但 CodeAgent 本身可以使用 ReAct 独立处理多个步骤。",
+            "correct": false
+          },
+          {
+            "text": "它将所有操作存储为 JSON 格式以便解析，然后一次性执行所有操作",
+            "explanation": "此行为匹配 ToolCallingAgent 的基于 JSON 的方法，而非 CodeAgent。",
+            "correct": false
+          },
+          {
+            "text": "它循环执行以下流程：编写内部思考、生成 Python 代码、执行代码并记录结果，直到得出最终答案",
+            "explanation": "正确。这描述了 CodeAgent 使用的 ReAct 模式，包括迭代推理和代码执行。",
+            "correct": true
+          },
+          {
+            "text": "它依赖视觉模块验证代码输出后才能继续下一步",
+            "explanation": "smolagents 支持视觉能力，但它们不是 CodeAgent 或 ReAct 方法的默认要求。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz2#3",
+        "title": "Q3: 在 Hugging Face Hub 上共享工具的主要优势是什么？",
+        "prompt": "选择开发者可能上传和共享自定义工具的最佳原因。",
+        "choices": [
+          {
+            "text": "它会自动将工具与 MultiStepAgent 集成以实现检索增强生成",
+            "explanation": "共享工具不会自动设置检索或多步逻辑，只是使工具可用。",
+            "correct": false
+          },
+          {
+            "text": "它允许他人在无需额外设置的情况下发现、重用并将您的工具集成到他们的 smolagents 中",
+            "explanation": "正确。在 Hub 上共享使工具可供任何人（包括您自己）快速下载和重用。",
+            "correct": true
+          },
+          {
+            "text": "它确保只有 CodeAgent 可以调用该工具，而 ToolCallingAgent 无法调用",
+            "explanation": "CodeAgent 和 ToolCallingAgent 都可以调用共享工具，没有基于智能体类型的限制。",
+            "correct": false
+          },
+          {
+            "text": "它会将您的工具转换为具备完整视觉能力的图像处理函数",
+            "explanation": "工具共享不会自动改变工具功能或增加视觉能力。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz2#4",
+        "title": "Q4: ToolCallingAgent 在执行操作方面与 CodeAgent 有何不同？",
+        "prompt": "选择准确描述 ToolCallingAgent 工作方式的选项。",
+        "choices": [
+          {
+            "text": "ToolCallingAgent 仅兼容多智能体系统，而 CodeAgent 可以单独运行",
+            "explanation": "两种智能体都可以单独使用或作为多智能体系统的一部分。",
+            "correct": false
+          },
+          {
+            "text": "ToolCallingAgent 将所有推理委托给单独的检索智能体，然后返回最终答案",
+            "explanation": "ToolCallingAgent 仍然使用主 LLM 进行推理，不完全依赖检索智能体。",
+            "correct": false
+          },
+          {
+            "text": "ToolCallingAgent 输出指定工具调用和参数的 JSON 指令，这些指令会被解析并执行",
+            "explanation": "正确。ToolCallingAgent 使用 JSON 方法来定义工具调用。",
+            "correct": true
+          },
+          {
+            "text": "ToolCallingAgent 仅适用于单步任务，在调用一个工具后自动停止",
+            "explanation": "ToolCallingAgent 可以像 CodeAgent 一样根据需要执行多个步骤。",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "id": "unit2/smolagents/quiz2#5",
+        "title": "Q5: smolagents 默认工具箱包含哪些内容？为什么要使用它？",
+        "prompt": "哪个陈述最能体现 smolagents 默认工具箱的目的和内容？",
+        "choices": [
+          {
+            "text": "它提供常用工具集（如 DuckDuckGo 搜索、PythonInterpreterTool 和最终答案工具）用于快速原型开发",
+            "explanation": "正确。默认工具箱包含这些现成工具，便于在构建智能体时快速集成。",
+            "correct": true
+          },
+          {
+            "text": "它默认仅支持基于视觉的任务（如图像分类或 OCR）",
+            "explanation": "尽管 smolagents 可以集成视觉功能，但默认工具箱并非专门面向视觉任务。",
+            "correct": false
+          },
+          {
+            "text": "它专门为多智能体系统设计，与单 CodeAgent 不兼容",
+            "explanation": "默认工具箱适用于任何智能体类型，包括单智能体和多智能体设置。",
+            "correct": false
+          },
+          {
+            "text": "它添加了基于检索的高级功能，支持来自向量存储的大规模问答",
+            "explanation": "虽然可以构建检索工具，但默认工具箱不会自动提供高级 RAG 功能。",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  }
+}

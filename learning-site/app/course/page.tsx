@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { courseLessons, units } from './course-data';
 
 const existingLessons = [
@@ -10,6 +11,7 @@ const existingLessons = [
 ];
 
 export default function CourseHub() {
+  const router = useRouter();
   const [activeId, setActiveId] = useState(courseLessons[0].id);
   const [completed, setCompleted] = useState<string[]>([]);
   const [quizChoice, setQuizChoice] = useState<number | null>(null);
@@ -73,8 +75,8 @@ export default function CourseHub() {
         <Link className="brand" href="/"><span className="brand-mark">A</span><div><strong>Agent 伴读</strong><small>14 主题速览模式</small></div></Link>
         <select className="mobile-course-select" value={activeId} aria-label="选择课程主题" onChange={(event) => {
           const id = event.target.value;
-          if (id === 'lesson-1') window.location.href = '/unit1/agent';
-          else if (id === 'lesson-2') window.location.href = '/unit1/llm';
+          if (id === 'lesson-1') router.push('/unit1/agent');
+          else if (id === 'lesson-2') router.push('/unit1/llm');
           else selectLesson(id);
         }}>
           <option value="lesson-1">01 · 什么是智能体？</option>
