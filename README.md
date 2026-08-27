@@ -1,72 +1,48 @@
 # Hugging Face Agents Course 中文伴读与实验项目
 
-本项目配合 [Hugging Face Agents Course 中文课程](https://huggingface.co/learn/agents-course/zh-CN) 使用。目标是完整保存官方内容，并增加解释、主动回忆、可运行实验和自动反馈；网页是否好看不是完成标准。
+本项目配合 [Hugging Face Agents Course 中文课程](https://huggingface.co/learn/agents-course/zh-CN) 学习。官方原文、Hinata 学习层、个人记录和实验代码分开存储；学习层只增加解释，不压缩、替代或改写官方内容。
 
 ## 当前真实状态
 
 | 能力 | 状态 |
 |---|---|
-| 官方中文课程源码 | 75/75 页已接入，固定提交 `8c0832e` |
-| 官方原文完整性 | 75/75 页原始 MDX 逐字符一致 |
-| Unit 1 学习层 | 15/15 页已有目标、前置、人话解释、概念、误区、任务、回忆题与掌握标准 |
-| 官方静态选择题 | 39/39 道已恢复为互动测验，支持得分、重试和错题记录 |
-| Unit 1 实验 | 3 个纯 Python 离线实验 + 1 个真实 smolagents 框架实验，均有任务版、答案版、说明和测试 |
-| Python 环境 | 配置和自检已完成；当前电脑的旧 `.venv` 已失效，需要按指南重建 |
-| 全课程逐页学习层 | 尚未完成，当前为 15/75 页 |
-| 真实框架与最终项目 | 正在建设，不能标记为已完成 |
-| Unit 1 掌握度 | 已综合阅读、测验、实验与闭卷复述；全课程扩展仍在继续 |
-| 笔记、收藏、疑问 | 已支持全部 75 页，含统一列表和 Markdown 导出 |
-| 全文搜索 | 下一实施项；当前仍只有标题筛选，不能冒充全文搜索 |
+| 官方中文课程 | 75/75 页，固定提交 `8c0832e`；原始 MDX 75/75 逐字符一致 |
+| Hinata 学习层 | 75/75 页，每页都有 8 类学习字段；Unit 1 为人工精写，其余页根据官方本页标题、段落与代码生成 |
+| 官方测验 | 8 个测验页、39/39 题；支持提交后显示答案、重试、得分、错题与本地保存 |
+| 学习工具 | 正文全文搜索、本地笔记、收藏、没看懂、Markdown 导出、主动回忆、间隔复习和 15 个概念关系 |
+| 真实框架 | smolagents ToolCallingAgent / CodeAgent、LlamaIndex 索引检索、LangGraph 条件路由已用固定版本实际运行通过 |
+| 渐进式主项目 | 8 阶段：最小循环 → 路由 → 模型适配 → RAG → 状态图 → 多角色 → Trace/Span → GAIA 风格评估 |
+| 自动验收 | 官方完整性、75 页学习层、39 题、28 个内部链接、Python 实验、lint、生产构建和本地 HTTP 冒烟均通过 |
+| 依赖安全 | Next 16.3.3、React 19.2.8、Vinext beta.8、Vite 8.2.2 等兼容组合；`npm audit` 0 漏洞 |
+| 离线图片 | 已有批量缓存脚本与页面降级提示；当前命令行无法连接 Hugging Face，109 个图片未实际缓存，不标记为完成 |
+| 学习者掌握度 | 系统只记录证据，不会因为功能做完就自动声称你“已掌握” |
 
-完整建设清单与验收标准见 [LEARNING_SYSTEM_REQUIREMENTS.md](LEARNING_SYSTEM_REQUIREMENTS.md)。
+完整要求、实施顺序和验收记录见 [LEARNING_SYSTEM_REQUIREMENTS.md](LEARNING_SYSTEM_REQUIREMENTS.md)。
 
-## 一键打开课程
+## 一键打开
 
-双击根目录的 `打开课程.bat`。它会启动本地网页服务，并在默认浏览器打开：
+双击根目录的 `打开课程.bat`，它会检查服务、必要时启动项目，然后在默认浏览器打开 `http://localhost:3000/`。手动启动使用 `npm run dev`。
 
-```text
-http://localhost:3000/
-```
+## 建议学习顺序
 
-手动启动时必须在项目根目录运行：
+1. 在网页中阅读官方原文和本页 Hinata 学习层。
+2. 不看正文完成复述自评，再做官方测验。
+3. 按 `exercises/unit1 → unit2 → unit3 → unit4` 完成任务版，用测试检查，最后对照答案版。
+4. 用 `exercises/capstone/` 把分散知识合成同一个 8 阶段项目。
+5. 在统一记录中处理错题、没看懂和到期复习，而不是只累计“已阅读”。
 
-```powershell
-npm run dev
-```
+Python 环境按 [PYTHON_SETUP.md](PYTHON_SETUP.md) 重建。当前旧 `.venv` 指向已删除的 Python 3.12，这是本机环境状态，不是实验代码错误。
 
-根目录的 `package.json` 会自动进入 `learning-site/`，因此不会再出现“根目录找不到 package.json”的问题。
-
-## Python 学习环境
-
-先阅读 [PYTHON_SETUP.md](PYTHON_SETUP.md)。当前 `.venv` 指向一个已经不存在的 Python 3.12，必须安装 Python 3.12 后重新创建。
-
-环境恢复后：
+## 验收和维护
 
 ```powershell
-python scripts\check_python_environment.py
-python -m unittest discover -s tests -v
+npm run verify:all
+npm run check:updates
+npm run cache:assets
 ```
 
-Unit 1 正式实验位于 `exercises/unit1/`，建议按 `lab01_messages → lab02_tools → lab03_agent_loop → lab04_smolagents` 顺序完成。前三个只用标准库；第四个真实使用 smolagents，并同时提供无 Token 教学模型和可选在线模型。
+- `verify:all`：内容、链接、学习层、Python、lint 和生产构建总验收。请先按 Python 指南重建 `.venv`。
+- `check:updates`：只读比较官方提交；有变化时生成行级差异报告，不自动覆盖本地学习层。
+- `cache:assets`：批量缓存官方教学图片；需要命令行能访问 Hugging Face。
 
-## 目录说明
-
-- `learning-site/`：75 页官方内容阅读器、学习层和互动测验。
-- `official-source/`：固定版本的 Hugging Face 官方课程源文件。
-- `exercises/`：本地 Python 实验；正式实验带 starter、solution 和测试。
-- `tests/`：离线自动测试。
-- `notes/`：早期本地笔记，后续会整合进网页学习层。
-- `scripts/`：官方内容同步、完整性校验、测验提取和环境自检。
-- 根目录零散 `.py`：早期自由实验，不属于正式课程交付物。
-
-## 内容校验
-
-```powershell
-npm run verify:official
-npm run verify:learning
-npm run verify:quizzes
-npm run lint
-npm run build
-```
-
-网页进度、测验选择和错题目前只保存在当前浏览器，不会上传，也不会修改官方原文。
+浏览器中的进度、笔记、收藏、疑问、复习和错题都只保存在当前设备，不会上传。

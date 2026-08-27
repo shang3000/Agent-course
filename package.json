@@ -18,6 +18,6 @@
     "cache:assets": "node scripts/cache_official_assets.mjs",
     "index:search": "node scripts/build_search_index.mjs",
     "guides:complete": "node scripts/generate_learning_guides.mjs && node scripts/build_search_index.mjs",
-    "test:python": "python -m unittest discover -s tests -v"
+    "test:python": "node scripts/run_python_tests.mjs"
   }
 }
